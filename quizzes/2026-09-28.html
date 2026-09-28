@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta name="robots" content="noindex,nofollow"/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Daily Maths Warm-up – Mon 28 Sep</title>
+<style>
+  :root {
+    --bg: #faf7f0;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #555;
+    --accent: #c0392b;
+    --accent-soft: #f5e6e4;
+    --ok: #1e7a3a;
+    --ok-bg: #e8f6ec;
+    --bad: #a31f14;
+    --bad-bg: #fceceb;
+    --border: #ddd5c8;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0 0 4rem;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--ink);
+    background: var(--bg);
+  }
+  .wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 1.25rem 1.25rem 2rem;
+  }
+  header.top {
+    margin-bottom: 1.5rem;
+  }
+  h1 {
+    font-size: clamp(1.45rem, 3.5vw, 1.85rem);
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    color: var(--ink);
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin: 0 0 1.25rem;
+  }
+  .remember {
+    margin: 0 0 1.75rem;
+  }
+  .remember > h2 {
+    font-size: 1.2rem;
+    margin: 0 0 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+  .hint-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+  @media (max-width: 700px) {
+    .hint-row { grid-template-columns: 1fr; }
+  }
+  .hint-card {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.85rem 1rem;
+    border-top: 4px solid var(--accent);
+  }
+  .hint-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+    color: var(--accent);
+    text-align: center;
+  }
+  .hint-body {
+    font-size: 1.12rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .tip {
+    margin-top: 0.85rem;
+    background: var(--accent-soft);
+    border-left: 5px solid var(--accent);
+    padding: 0.75rem 1rem;
+    border-radius: 0 10px 10px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .section-h {
+    margin: 2rem 0 0.85rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 3px solid var(--accent);
+    font-size: 1.35rem;
+    color: var(--ink);
+  }
+  .q {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.15rem 1.25rem 1.25rem;
+    margin: 0 0 1.35rem;
+  }
+  .q.correct {
+    border-color: var(--ok);
+    background: var(--ok-bg);
+  }
+  .q.incorrect {
+    border-color: var(--bad);
+    background: var(--bad-bg);
+  }
+  .q-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.65rem;
+    margin-bottom: 0.45rem;
+  }
+  .q-num {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--accent);
+  }
+  .q-sec {
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+  .q-prompt {
+    margin: 0 0 0.75rem;
+    font-size: 1.22rem;
+    font-weight: 550;
+  }
+  .numline {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0.4rem 0 0.85rem;
+    background: #fffef9;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .ans {
+    width: 100%;
+    font-size: 1.35rem;
+    padding: 0.75rem 0.9rem;
+    border: 2px solid #bbb;
+    border-radius: 10px;
+    background: #fff;
+    color: var(--ink);
+  }
+  .ans:focus {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    border-color: var(--accent);
+  }
+  .feedback {
+    margin-top: 0.75rem;
+    font-size: 1.12rem;
+    padding: 0.65rem 0.8rem;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid var(--border);
+  }
+  .feedback .mark {
+    font-weight: 800;
+    margin-right: 0.35rem;
+  }
+  .feedback .mark.ok { color: var(--ok); }
+  .feedback .mark.bad { color: var(--bad); }
+  .feedback .explain {
+    display: block;
+    margin-top: 0.35rem;
+    color: #333;
+    font-size: 1.08rem;
+  }
+  .actions {
+    position: sticky;
+    bottom: 0;
+    background: linear-gradient(transparent, var(--bg) 18%);
+    padding: 1.25rem 0 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  button.btn {
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0.85rem 1.4rem;
+    border-radius: 12px;
+    border: 2px solid var(--accent);
+    cursor: pointer;
+    font-family: inherit;
+  }
+  button.btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  button.btn-primary:hover { filter: brightness(0.95); }
+  button.btn-soft {
+    background: var(--card);
+    color: var(--ink);
+    border-color: var(--border);
+  }
+  button.btn-soft:hover { border-color: var(--accent); }
+  .open-banner {
+    margin: 0 0 1.15rem;
+    padding: 0.85rem 1.05rem;
+    background: #fff6d6;
+    border: 2px solid #e6d48a;
+    border-radius: var(--radius);
+    color: #5a4a12;
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+  .open-banner strong {
+    color: #3d320a;
+  }
+  #scoreboard {
+    display: none;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 1rem 1.15rem;
+    border-radius: var(--radius);
+    background: var(--card);
+    border: 3px solid var(--accent);
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+  #scoreboard.show { display: block; }
+  #parentReport {
+    display: none;
+    width: 100%;
+    margin: 0.35rem 0 0.75rem;
+    padding: 1.1rem 1.2rem;
+    border-radius: var(--radius);
+    background: #fffef9;
+    border: 2px solid var(--border);
+  }
+  #parentReport.show { display: block; }
+  #parentReport h2 {
+    margin: 0 0 0.65rem;
+    font-size: 1.25rem;
+    color: var(--accent);
+  }
+  #parentReportPre {
+    margin: 0 0 1rem;
+    padding: 0.85rem 1rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    white-space: pre-wrap;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .parent-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  button.btn-parent {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    font-size: 1.35rem;
+    padding: 1rem 1.5rem;
+  }
+  button.btn-parent:hover:not(:disabled) { filter: brightness(0.95); }
+  button.btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    filter: none;
+  }
+  #copyStatus {
+    font-size: 1rem;
+    color: var(--ok);
+    font-weight: 600;
+    min-height: 1.4em;
+  }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+  footer.note {
+    margin-top: 2rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="open-banner" role="note">
+      <strong>If you opened this from email and only see code:</strong>
+      tap Download, then Open in Safari or Chrome — don’t open inside Gmail.
+    </div>
+    <header class="top">
+      <h1>Daily Maths Warm-up – Mon 28 Sep</h1>
+      <p class="subtitle">Y7 · Decimals · Place value · Negatives · 20 questions · work at your own pace</p>
+    </header>
+
+    <section class="remember" aria-label="Things to remember">
+      <h2>Things to remember</h2>
+      <div class="hint-row">
+        
+        <div class="hint-card">
+          <h3>Sign rules</h3>
+          <div class="hint-body"><div>++ -&gt; +</div><div>+− -&gt; −</div><div>−+ -&gt; −</div><div>−− -&gt; +</div></div>
+        </div>
+        <div class="hint-card">
+          <h3>Place value</h3>
+          <div class="hint-body"><div>H | T | O · t | h | th</div><div>Hundreds Tens Ones</div><div>· Tenths Hundredths</div><div>Thousandths</div></div>
+        </div>
+        <div class="hint-card">
+          <h3>Rounding</h3>
+          <div class="hint-body"><div>Look at next digit:</div><div>5 or more -&gt; round UP</div><div>4 or less -&gt; stay</div><div>e.g. 3.46 -&gt; 3.5 (1 d.p.)</div></div>
+        </div>
+      </div>
+      <p class="tip">Tip: line up decimal points before you add or subtract.</p>
+    </section>
+
+    <main id="quiz">
+      <h2 class="section-h">Ordering decimals</h2>
+    <article class="q" id="q1" data-n="1">
+      <div class="q-head">
+        <span class="q-num">Q1</span>
+        <span class="q-sec">Ordering decimals</span>
+      </div>
+      <p class="q-prompt">Order from smallest to largest:  0.27 ,  0.207 ,  0.2 ,  0.72</p>
+      
+      <label class="sr-only" for="a1">Answer for question 1</label>
+      <input class="ans" type="text" id="a1" name="a1" autocomplete="off" spellcheck="false"
+             placeholder="e.g. 0.1 , 0.2 , 0.3" inputmode="text"/>
+      <div class="feedback" id="fb1" hidden></div>
+    </article>
+    <article class="q" id="q2" data-n="2">
+      <div class="q-head">
+        <span class="q-num">Q2</span>
+        <span class="q-sec">Ordering decimals</span>
+      </div>
+      <p class="q-prompt">Order from largest to smallest:  5.09 ,  5.9 ,  5.19 ,  5.091</p>
+      
+      <label class="sr-only" for="a2">Answer for question 2</label>
+      <input class="ans" type="text" id="a2" name="a2" autocomplete="off" spellcheck="false"
+             placeholder="e.g. 0.1 , 0.2 , 0.3" inputmode="text"/>
+      <div class="feedback" id="fb2" hidden></div>
+    </article>
+    <article class="q" id="q3" data-n="3">
+      <div class="q-head">
+        <span class="q-num">Q3</span>
+        <span class="q-sec">Ordering decimals</span>
+      </div>
+      <p class="q-prompt">Order from smallest to largest:  3.07 ,  3.7 ,  3.17 ,  3.71</p>
+      
+      <label class="sr-only" for="a3">Answer for question 3</label>
+      <input class="ans" type="text" id="a3" name="a3" autocomplete="off" spellcheck="false"
+             placeholder="e.g. 0.1 , 0.2 , 0.3" inputmode="text"/>
+      <div class="feedback" id="fb3" hidden></div>
+    </article>
+    <article class="q" id="q4" data-n="4">
+      <div class="q-head">
+        <span class="q-num">Q4</span>
+        <span class="q-sec">Ordering decimals</span>
+      </div>
+      <p class="q-prompt">Order from largest to smallest:  0.8 ,  0.78 ,  0.807 ,  0.87</p>
+      
+      <label class="sr-only" for="a4">Answer for question 4</label>
+      <input class="ans" type="text" id="a4" name="a4" autocomplete="off" spellcheck="false"
+             placeholder="e.g. 0.1 , 0.2 , 0.3" inputmode="text"/>
+      <div class="feedback" id="fb4" hidden></div>
+    </article><h2 class="section-h">Rounding</h2>
+    <article class="q" id="q5" data-n="5">
+      <div class="q-head">
+        <span class="q-num">Q5</span>
+        <span class="q-sec">Rounding</span>
+      </div>
+      <p class="q-prompt">Round 7.58 to 1 decimal place.</p>
+      
+      <label class="sr-only" for="a5">Answer for question 5</label>
+      <input class="ans" type="text" id="a5" name="a5" autocomplete="off" spellcheck="false"
+             placeholder="Type your answer here" inputmode="text"/>
+      <div class="feedback" id="fb5" hidden></div>
+    </article>
+    <article class="q" id="q6" data-n="6">
+      <div class="q-head">
+        <span class="q-num">Q6</span>
+        <span class="q-sec">Rounding</span>
+      </div>
+      <p class="q-prompt">Round 4.23 to 1 decimal place.</p>
+      
+      <label class="sr-only" for="a6">Answer for question 6</label>
+      <input class="ans" type="text" id="a6" name="a6" autocomplete="off" spellcheck="false"
+             placeholder="Type your answer here" inputmode="text"/>
+      <div class="feedback" id="fb6" hidden></div>
+    </article>
+    <article class="q" id="q7" data-n="7">
+      <div class="q-head">
+        <span class="q-num">Q7</span>
+        <span class="q-sec">Rounding</span>
+      </div>
+      <p class="q-prompt">Round 8.714 to 2 decimal places.</p>
+      
+      <label class="sr-only" for="a7">Answer for question 7</label>
+      <input class="ans" type="text" id="a7" name="a7" autocomplete="off" spellcheck="false"
+             placeholder="Type your answer here" inputmode="text"/>
+      <div class="feedback" id="fb7" hidden></div>
+    </article>
+    <article class="q" id="q8" data-n="8">
+      <div class="q-head">
+        <span class="q-num">Q8</span>
+        <span class="q-sec">Rounding</span>
+      </div>
+      <p class="q-prompt">Round 19.55 to the nearest whole number.</p>
+      
+      <label class="sr-only" for="a8">Answer for question 8</label>
+      <input class="ans" type="text" id="a8" name="a8" autocomplete="off" spellcheck="false"
+             placeholder="Type your answer here" inputmode="text"/>
+      <div class="feedback" id="fb8" hidden></div>
+    </article><h2 class="section-h">Place value</h2>
+    <article class="q" id="q9" data-n="9">
+      <div class="q-head">
+        <span class="q-num">Q9</span>
+        <span class="q-sec">Place value</span>
+      </div>
+      <p class="q-prompt">In 39.416, what is the value of the digit 1?</p>
+      
+      <label class="sr-only" for="a9">Answer for question 9</label>
+      <input class="ans" type="text" id="a9" name="a9" autocomplete="off" spellcheck="false"
+             placeholder="e.g. 0.06 or 6 hundredths" inputmode="text"/>
+      <div class="feedback" id="fb9" hidden></div>
+    </article>
+    <article class="q" id="q10" data-n="10">
+      <div class="q-head">
+        <span class="q-num">Q10</span>
+        <span class="q-sec">Place value</span>
+      </div>
+      <p class="q-prompt">Write 6.094 in expanded form (e.g. 6 + 0.09 + 0.004).</p>
+      
+      <label class="sr-only" for="a10">Answer for question 10</label>
+      <input class="ans" type="text" id="a10" name="a10" autocomplete="off" spellcheck="false"
+             placeholder="Type your answer here" inputmode="text"/>
+      <div class="feedback" id="fb10" hidden></div>
+    </article>
+    <article class="q" id="q11" data-n="11">
+      <div class="q-head">
+        <span class="q-num">Q11</span>
+        <span class="q-sec">Place value</span>
+      </div>
+      <p class="q-prompt">Write in words:  80.06</p>
+      
+      <label class="sr-only" for="a11">Answer for question 11</label>
+      <input class="ans" type="text" id="a11" name="a11" autocomplete="off" spellcheck="false"
+             placeholder="Write in words…" inputmode="text"/>
+      <div class="feedback" id="fb11" hidden></div>
+    </article><h2 class="section-h">Column decimals</h2>
+    <article class="q" id="q12" data-n="12">
+      <div class="q-head">
+        <span class="q-num">Q12</span>
+        <span class="q-sec">Column decimals</span>
+      </div>
+      <p class="q-prompt">Add:  5.6 + 3.48</p>
+      
+      <label class="sr-only" for="a12">Answer for question 12</label>
+      <input class="ans" type="text" id="a12" name="a12" autocomplete="off" spellcheck="false"
+             placeholder="Type your answer here" inputmode="text"/>
+      <div class="feedback" id="fb12" hidden></div>
+    </article>
+    <article class="q" id="q13" data-n="13">
+      <div class="q-head">
+        <span class="q-num">Q13</span>
+        <span class="q-sec">Column decimals</span>
+      </div>
+      <p class="q-prompt">Add:  8.47 + 1.9</p>
+      
+      <label class="sr-only" for="a13">Answer for question 13</label>
+      <input class="ans" type="text" id="a13" name="a13" autocomplete="off" spellcheck="false"
+             placeholder="Type your answer here" inputmode="text"/>
+      <div class="feedback" id="fb13" hidden></div>
+    </article>
+    <article class="q" id="q14" data-n="14">
+      <div class="q-head">
+        <span class="q-num">Q14</span>
+        <span class="q-sec">Column decimals</span>
+      </div>
+      <p class="q-prompt">Add:  13.02 + 0.78</p>
+      
+      <label class="sr-only" for="a14">Answer for question 14</label>
+      <input class="ans" type="text" id="a14" name="a14" autocomplete="off" spellcheck="false"
+             placeholder="Type your answer here" inputmode="text"/>
+      <div class="feedback" id="fb14" hidden></div>
+    </article>
+    <article class="q" id="q15" data-n="15">
+      <div class="q-head">
+        <span class="q-num">Q15</span>
+        <span class="q-sec">Column decimals</span>
+      </div>
+      <p class="q-prompt">Subtract:  9.5 − 4.28</p>
+      
+      <label class="sr-only" for="a15">Answer for question 15</label>
+      <input class="ans" type="text" id="a15" name="a15" autocomplete="off" spellcheck="false"
+             placeholder="Type your answer here" inputmode="text"/>
+      <div class="feedback" id="fb15" hidden></div>
+    </article>
+    <article class="q" id="q16" data-n="16">
+      <div class="q-head">
+        <span class="q-num">Q16</span>
+        <span class="q-sec">Column decimals</span>
+      </div>
+      <p class="q-prompt">Subtract:  8.06 − 2.7</p>
+      
+      <label class="sr-only" for="a16">Answer for question 16</label>
+      <input class="ans" type="text" id="a16" name="a16" autocomplete="off" spellcheck="false"
+             placeholder="Type your answer here" inputmode="text"/>
+      <div class="feedback" id="fb16" hidden></div>
+    </article><h2 class="section-h">Negatives</h2>
+    <article class="q" id="q17" data-n="17">
+      <div class="q-head">
+        <span class="q-num">Q17</span>
+        <span class="q-sec">Negatives</span>
+      </div>
+      <p class="q-prompt">Number line (one hop): Start at −9. Move 4 right. Mark the finish.</p>
+      <svg class="numline" viewBox="0 0 800 90" role="img" aria-label="Number line from minus 10 to plus 10">
+  <line x1="40" y1="45" x2="760" y2="45" stroke="#222" stroke-width="2.5"/>
+  <line x1="40.0" y1="31" x2="40.0" y2="59" stroke="#222" stroke-width="2"/><text x="40.0" y="77" text-anchor="middle" font-size="14" font-family="system-ui,sans-serif" fill="#111">-10</text><line x1="76.0" y1="37" x2="76.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="112.0" y1="37" x2="112.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="148.0" y1="37" x2="148.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="184.0" y1="37" x2="184.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="220.0" y1="31" x2="220.0" y2="59" stroke="#222" stroke-width="2"/><text x="220.0" y="77" text-anchor="middle" font-size="14" font-family="system-ui,sans-serif" fill="#111">-5</text><line x1="256.0" y1="37" x2="256.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="292.0" y1="37" x2="292.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="328.0" y1="37" x2="328.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="364.0" y1="37" x2="364.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="400.0" y1="31" x2="400.0" y2="59" stroke="#222" stroke-width="2"/><text x="400.0" y="77" text-anchor="middle" font-size="14" font-family="system-ui,sans-serif" fill="#111">0</text><line x1="436.0" y1="37" x2="436.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="472.0" y1="37" x2="472.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="508.0" y1="37" x2="508.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="544.0" y1="37" x2="544.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="580.0" y1="31" x2="580.0" y2="59" stroke="#222" stroke-width="2"/><text x="580.0" y="77" text-anchor="middle" font-size="14" font-family="system-ui,sans-serif" fill="#111">5</text><line x1="616.0" y1="37" x2="616.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="652.0" y1="37" x2="652.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="688.0" y1="37" x2="688.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="724.0" y1="37" x2="724.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="760.0" y1="31" x2="760.0" y2="59" stroke="#222" stroke-width="2"/><text x="760.0" y="77" text-anchor="middle" font-size="14" font-family="system-ui,sans-serif" fill="#111">10</text>
+  <circle cx="76.0" cy="45" r="8" fill="#c0392b" stroke="#111" stroke-width="1.5"/><text x="76.0" y="27" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#c0392b" font-weight="700">start</text><defs><marker id="arr-9" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c0392b"/></marker></defs><line x1="76.0" y1="17" x2="220.0" y2="17" stroke="#c0392b" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arr-9)" opacity="0.55"/>
+</svg>
+      <label class="sr-only" for="a17">Answer for question 17</label>
+      <input class="ans" type="text" id="a17" name="a17" autocomplete="off" spellcheck="false"
+             placeholder="Finish number (e.g. −2)" inputmode="text"/>
+      <div class="feedback" id="fb17" hidden></div>
+    </article>
+    <article class="q" id="q18" data-n="18">
+      <div class="q-head">
+        <span class="q-num">Q18</span>
+        <span class="q-sec">Negatives</span>
+      </div>
+      <p class="q-prompt">Number line (cross zero): Start at +4. Subtract 7 (move left). Mark the finish.</p>
+      <svg class="numline" viewBox="0 0 800 90" role="img" aria-label="Number line from minus 10 to plus 10">
+  <line x1="40" y1="45" x2="760" y2="45" stroke="#222" stroke-width="2.5"/>
+  <line x1="40.0" y1="31" x2="40.0" y2="59" stroke="#222" stroke-width="2"/><text x="40.0" y="77" text-anchor="middle" font-size="14" font-family="system-ui,sans-serif" fill="#111">-10</text><line x1="76.0" y1="37" x2="76.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="112.0" y1="37" x2="112.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="148.0" y1="37" x2="148.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="184.0" y1="37" x2="184.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="220.0" y1="31" x2="220.0" y2="59" stroke="#222" stroke-width="2"/><text x="220.0" y="77" text-anchor="middle" font-size="14" font-family="system-ui,sans-serif" fill="#111">-5</text><line x1="256.0" y1="37" x2="256.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="292.0" y1="37" x2="292.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="328.0" y1="37" x2="328.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="364.0" y1="37" x2="364.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="400.0" y1="31" x2="400.0" y2="59" stroke="#222" stroke-width="2"/><text x="400.0" y="77" text-anchor="middle" font-size="14" font-family="system-ui,sans-serif" fill="#111">0</text><line x1="436.0" y1="37" x2="436.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="472.0" y1="37" x2="472.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="508.0" y1="37" x2="508.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="544.0" y1="37" x2="544.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="580.0" y1="31" x2="580.0" y2="59" stroke="#222" stroke-width="2"/><text x="580.0" y="77" text-anchor="middle" font-size="14" font-family="system-ui,sans-serif" fill="#111">5</text><line x1="616.0" y1="37" x2="616.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="652.0" y1="37" x2="652.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="688.0" y1="37" x2="688.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="724.0" y1="37" x2="724.0" y2="53" stroke="#222" stroke-width="1.2"/><line x1="760.0" y1="31" x2="760.0" y2="59" stroke="#222" stroke-width="2"/><text x="760.0" y="77" text-anchor="middle" font-size="14" font-family="system-ui,sans-serif" fill="#111">10</text>
+  <circle cx="544.0" cy="45" r="8" fill="#c0392b" stroke="#111" stroke-width="1.5"/><text x="544.0" y="27" text-anchor="middle" font-size="13" font-family="system-ui,sans-serif" fill="#c0392b" font-weight="700">start</text><defs><marker id="arr4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c0392b"/></marker></defs><line x1="544.0" y1="17" x2="292.0" y2="17" stroke="#c0392b" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arr4)" opacity="0.55"/>
+</svg>
+      <label class="sr-only" for="a18">Answer for question 18</label>
+      <input class="ans" type="text" id="a18" name="a18" autocomplete="off" spellcheck="false"
+             placeholder="Finish number (e.g. −2)" inputmode="text"/>
+      <div class="feedback" id="fb18" hidden></div>
+    </article>
+    <article class="q" id="q19" data-n="19">
+      <div class="q-head">
+        <span class="q-num">Q19</span>
+        <span class="q-sec">Negatives</span>
+      </div>
+      <p class="q-prompt">Calculate (use sign rules):  7 − (−3)</p>
+      
+      <label class="sr-only" for="a19">Answer for question 19</label>
+      <input class="ans" type="text" id="a19" name="a19" autocomplete="off" spellcheck="false"
+             placeholder="Type your answer here" inputmode="text"/>
+      <div class="feedback" id="fb19" hidden></div>
+    </article>
+    <article class="q" id="q20" data-n="20">
+      <div class="q-head">
+        <span class="q-num">Q20</span>
+        <span class="q-sec">Negatives</span>
+      </div>
+      <p class="q-prompt">Calculate (use sign rules):  −4 − (+5)</p>
+      
+      <label class="sr-only" for="a20">Answer for question 20</label>
+      <input class="ans" type="text" id="a20" name="a20" autocomplete="off" spellcheck="false"
+             placeholder="Type your answer here" inputmode="text"/>
+      <div class="feedback" id="fb20" hidden></div>
+    </article>
+    </main>
+
+    <div class="actions">
+      <div id="scoreboard" role="status" aria-live="polite"></div>
+      <div id="parentReport" aria-live="polite">
+        <h2>Results for Mum &amp; Dad</h2>
+        <pre id="parentReportPre"></pre>
+        <div class="parent-actions">
+          <button type="button" class="btn btn-parent" id="sendParentsBtn" disabled>Send my results to Mum &amp; Dad</button>
+          <button type="button" class="btn btn-soft" id="copyResultsBtn" disabled>Copy results</button>
+          <span id="copyStatus" aria-live="polite"></span>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" id="checkBtn">Check my answers</button>
+      <button type="button" class="btn btn-soft" id="retryBtn">Try again</button>
+    </div>
+
+    <footer class="note">Well done for practising · answers stay on this device only</footer>
+  </div>
+
+<script>
+(function () {
+  "use strict";
+  /* answer key (base64 JSON) — not security, just discourage casual peek */
+  var KEY_B64 = "W3sibiI6MSwidHlwZSI6Im9yZGVyaW5nIiwicHJpbWFyeSI6IjAuMiAsIDAuMjA3ICwgMC4yNyAsIDAuNzIiLCJyYXciOiIwLjIgLCAwLjIwNyAsIDAuMjcgLCAwLjcyIiwiYWx0cyI6W10sIndvcmtpbmciOiJBbGlnbjogMC4yMDAgPCAwLjIwNyA8IDAuMjcwIDwgMC43MjAuIEFsbCBmb3VyIHZhbHVlcyBhcmUgZGlmZmVyZW50LiIsIm5vdGUiOiIiLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjoyLCJ0eXBlIjoib3JkZXJpbmciLCJwcmltYXJ5IjoiNS45ICwgNS4xOSAsIDUuMDkxICwgNS4wOSIsInJhdyI6IjUuOSAsIDUuMTkgLCA1LjA5MSAsIDUuMDkiLCJhbHRzIjpbXSwid29ya2luZyI6IkFsaWduOiA1LjkwMCA+IDUuMTkwID4gNS4wOTEgPiA1LjA5MC4gQWxsIGZvdXIgdmFsdWVzIGFyZSBkaWZmZXJlbnQuIiwibm90ZSI6IiIsImVxdWFsX3BhaXJzIjpbXSwiZmluaXNoIjpudWxsfSx7Im4iOjMsInR5cGUiOiJvcmRlcmluZyIsInByaW1hcnkiOiIzLjA3ICwgMy4xNyAsIDMuNyAsIDMuNzEiLCJyYXciOiIzLjA3ICwgMy4xNyAsIDMuNyAsIDMuNzEiLCJhbHRzIjpbXSwid29ya2luZyI6IkFsaWduOiAzLjA3IDwgMy4xNyA8IDMuNzAgPCAzLjcxLiBBbGwgZm91ciB2YWx1ZXMgYXJlIGRpZmZlcmVudC4iLCJub3RlIjoiIiwiZXF1YWxfcGFpcnMiOltdLCJmaW5pc2giOm51bGx9LHsibiI6NCwidHlwZSI6Im9yZGVyaW5nIiwicHJpbWFyeSI6IjAuODcgLCAwLjgwNyAsIDAuOCAsIDAuNzgiLCJyYXciOiIwLjg3ICwgMC44MDcgLCAwLjggLCAwLjc4IiwiYWx0cyI6W10sIndvcmtpbmciOiIwLjg3MCA+IDAuODA3ID4gMC44MDAgPiAwLjc4MC4iLCJub3RlIjoiIiwiZXF1YWxfcGFpcnMiOltdLCJmaW5pc2giOm51bGx9LHsibiI6NSwidHlwZSI6InJvdW5kaW5nIiwicHJpbWFyeSI6IjcuNiIsInJhdyI6IjcuNiIsImFsdHMiOltdLCJ3b3JraW5nIjoiSHVuZHJlZHRocyBkaWdpdCA4IOKJpSA1IOKGkiByb3VuZCB0ZW50aHMgdXAuIDcuNSDihpIgNy42LiIsIm5vdGUiOiIiLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjo2LCJ0eXBlIjoicm91bmRpbmciLCJwcmltYXJ5IjoiNC4yIiwicmF3IjoiNC4yIiwiYWx0cyI6W10sIndvcmtpbmciOiJIdW5kcmVkdGhzIGRpZ2l0IDMgPCA1IOKGkiB0ZW50aHMgc3RheS4gNC4yLiIsIm5vdGUiOiIiLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjo3LCJ0eXBlIjoicm91bmRpbmciLCJwcmltYXJ5IjoiOC43MSIsInJhdyI6IjguNzEiLCJhbHRzIjpbXSwid29ya2luZyI6IlRob3VzYW5kdGhzIGRpZ2l0IDQgPCA1IOKGkiBodW5kcmVkdGhzIHN0YXkuIDguNzEuIiwibm90ZSI6IiIsImVxdWFsX3BhaXJzIjpbXSwiZmluaXNoIjpudWxsfSx7Im4iOjgsInR5cGUiOiJyb3VuZGluZyIsInByaW1hcnkiOiIyMCIsInJhdyI6IjIwIiwiYWx0cyI6W10sIndvcmtpbmciOiJUZW50aHMgZGlnaXQgNSDiiaUgNSDihpIgb25lcyB1cC4gMTkg4oaSIDIwLiIsIm5vdGUiOiIiLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjo5LCJ0eXBlIjoicGxhY2VfdmFsdWUiLCJwcmltYXJ5IjoiMSBodW5kcmVkdGgiLCJyYXciOiIxIGh1bmRyZWR0aCAgKG9yIDAuMDEpIiwiYWx0cyI6WyIwLjA2IiwiNiBodW5kcmVkdGhzIiwiLjA2IiwiNi8xMDAiLCJzaXggaHVuZHJlZHRocyIsIjAuMDEiXSwid29ya2luZyI6IlBsYWNlczogMyB0ZW5zLCA5IG9uZXMsIDQgdGVudGhzLCAxIGh1bmRyZWR0aCwgNiB0aG91c2FuZHRocy4iLCJub3RlIjoiIiwiZXF1YWxfcGFpcnMiOltdLCJmaW5pc2giOm51bGx9LHsibiI6MTAsInR5cGUiOiJwbGFjZV92YWx1ZSIsInByaW1hcnkiOiI2ICsgMC4wOSArIDAuMDA0IiwicmF3IjoiNiArIDAuMDkgKyAwLjAwNCIsImFsdHMiOlsiMyArIDAuMDggKyAwLjAwMiIsIjMrMC4wOCswLjAwMiIsIjMgKyA4LzEwMCArIDIvMTAwMCIsIjMgKyAwLjA4MCArIDAuMDAyIl0sIndvcmtpbmciOiI2IG9uZXMgKyAwIHRlbnRocyArIDkgaHVuZHJlZHRocyArIDQgdGhvdXNhbmR0aHMuIiwibm90ZSI6IkFsc28gYWNjZXB0IDYgKyA5LzEwMCArIDQvMTAwMC4iLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjoxMSwidHlwZSI6InBsYWNlX3ZhbHVlIiwicHJpbWFyeSI6ImVpZ2h0eSBwb2ludCB6ZXJvIHNpeCIsInJhdyI6ImVpZ2h0eSBwb2ludCB6ZXJvIHNpeCIsImFsdHMiOlsiZmlmdHkgcG9pbnQgemVybyBzZXZlbiIsImZpZnR5IHBvaW50IDAgNyIsImZpZnR5IGFuZCBzZXZlbiBodW5kcmVkdGhzIiwiNTAgcG9pbnQgMDciLCJmaWZ0eSBwb2ludCBvaCBzZXZlbiJdLCJ3b3JraW5nIjoiODAgb25lcyArIDAgdGVudGhzICsgNiBodW5kcmVkdGhzLiIsIm5vdGUiOiJBbHNvIGFjY2VwdDogZWlnaHR5IGFuZCBzaXggaHVuZHJlZHRocy4iLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjoxMiwidHlwZSI6ImNvbHVtbiIsInByaW1hcnkiOiI5LjA4IiwicmF3IjoiOS4wOCIsImFsdHMiOltdLCJ3b3JraW5nIjoiQWxpZ24gcG9pbnRzOiA1LjYwICsgMy40OCA9IDkuMDguIiwibm90ZSI6IiIsImVxdWFsX3BhaXJzIjpbXSwiZmluaXNoIjpudWxsfSx7Im4iOjEzLCJ0eXBlIjoiY29sdW1uIiwicHJpbWFyeSI6IjEwLjM3IiwicmF3IjoiMTAuMzciLCJhbHRzIjpbXSwid29ya2luZyI6IjguNDcgKyAxLjkwID0gMTAuMzcgKHJlZ3JvdXAgb25lczogOCsxK2NhcnJ5KS4iLCJub3RlIjoiSW5jbHVkZXMgcmVncm91cGluZy4iLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjoxNCwidHlwZSI6ImNvbHVtbiIsInByaW1hcnkiOiIxMy44MCIsInJhdyI6IjEzLjgwIiwiYWx0cyI6W10sIndvcmtpbmciOiIxMy4wMiArIDAuNzggPSAxMy44MC4iLCJub3RlIjoiIiwiZXF1YWxfcGFpcnMiOltdLCJmaW5pc2giOm51bGx9LHsibiI6MTUsInR5cGUiOiJjb2x1bW4iLCJwcmltYXJ5IjoiNS4yMiIsInJhdyI6IjUuMjIiLCJhbHRzIjpbXSwid29ya2luZyI6IjkuNTAg4oiSIDQuMjggPSA1LjIyIChyZWdyb3VwIG9uZXMvdGVudGhzKS4iLCJub3RlIjoiUmVncm91cGluZy4iLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjoxNiwidHlwZSI6ImNvbHVtbiIsInByaW1hcnkiOiI1LjM2IiwicmF3IjoiNS4zNiIsImFsdHMiOltdLCJ3b3JraW5nIjoiOC4wNiDiiJIgMi43MCA9IDUuMzYuIiwibm90ZSI6IiIsImVxdWFsX3BhaXJzIjpbXSwiZmluaXNoIjpudWxsfSx7Im4iOjE3LCJ0eXBlIjoibnVtYmVyX2xpbmUiLCJwcmltYXJ5Ijoi4oiSNSIsInJhdyI6IkZpbmlzaCBhdCDiiJI1IiwiYWx0cyI6WyItNSIsImZpbmlzaCBhdCAtNSIsImZpbmlzaCBhdCDiiJI1Il0sIndvcmtpbmciOiJTdGFydCDiiJI5OyBtb3ZlIDQgcmlnaHQ6IOKIkjkg4oaSIOKIkjgg4oaSIOKIkjcg4oaSIOKIkjYg4oaSIOKIkjUuIEZpbmlzaCDiiJI1LiIsIm5vdGUiOiJPbmUgaG9wIG9uIHRoZSBuZWdhdGl2ZSBzaWRlIChkb2VzIG5vdCBjcm9zcyB6ZXJvKS4iLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6LTV9LHsibiI6MTgsInR5cGUiOiJudW1iZXJfbGluZSIsInByaW1hcnkiOiLiiJIzIiwicmF3IjoiRmluaXNoIGF0IOKIkjMiLCJhbHRzIjpbIi0zIiwiZmluaXNoIGF0IC0zIiwiZmluaXNoIGF0IOKIkjMiXSwid29ya2luZyI6IlN0YXJ0ICs0OyBzdWJ0cmFjdCA3IOKGkiBtb3ZlIDcgbGVmdDogNCDihpIgMyDihpIgMiDihpIgMSDihpIgMCDihpIg4oiSMSDihpIg4oiSMiDihpIg4oiSMy4gQ3Jvc3NlcyB6ZXJvIG9uY2UuIEZpbmlzaCDiiJIzLiIsIm5vdGUiOiJDcm9zc2VzIHplcm8gb25jZS4iLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6LTN9LHsibiI6MTksInR5cGUiOiJzaWduX2NhbGMiLCJwcmltYXJ5IjoiMTAiLCJyYXciOiIxMCIsImFsdHMiOltdLCJ3b3JraW5nIjoi4oiSKOKIkjMpIOKGkiArMywgc28gNyArIDMgPSAxMC4iLCJub3RlIjoiIiwiZXF1YWxfcGFpcnMiOltdLCJmaW5pc2giOm51bGx9LHsibiI6MjAsInR5cGUiOiJzaWduX2NhbGMiLCJwcmltYXJ5Ijoi4oiSOSIsInJhdyI6IuKIkjkiLCJhbHRzIjpbXSwid29ya2luZyI6IuKIkigrNSkg4oaSIOKIkjUsIHNvIOKIkjQg4oiSIDUgPSDiiJI5LiIsIm5vdGUiOiIiLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH1d";
+  var PARENT_EMAILS = "avp1347@gmail.com,cat_appleby@live.co.uk";
+  var SHORT_DATE = "Mon 28 Sep";
+  var STUDENT = "";
+  var lastReportText = "";
+  var lastScore = 0;
+  var lastTotal = 0;
+  var marked = false;
+
+  function decodeKey() {
+    try {
+      var bin = atob(KEY_B64);
+      var bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      var json = new TextDecoder("utf-8").decode(bytes);
+      return JSON.parse(json);
+    } catch (e) {
+      console.error("Could not load answer key", e);
+      return [];
+    }
+  }
+
+  var KEY = decodeKey();
+  var byN = {};
+  KEY.forEach(function (k) { byN[k.n] = k; });
+
+  function normSpace(s) {
+    return String(s || "")
+      .replace(/\u2212/g, "-")   /* unicode minus */
+      .replace(/\u2013|\u2014/g, "-")
+      .replace(/\u00d7/g, "x")
+      .trim()
+      .replace(/\s+/g, " ");
+  }
+
+  function lower(s) { return normSpace(s).toLowerCase(); }
+
+  function stripFinish(s) {
+    return lower(s)
+      .replace(/^finish\s*(at|=)?\s*/i, "")
+      .replace(/^at\s+/i, "")
+      .trim();
+  }
+
+  function parseNumberish(s) {
+    var t = stripFinish(s).replace(/^\+/, "");
+    if (t === "" || t === "-") return null;
+    var n = Number(t);
+    return isNaN(n) ? null : n;
+  }
+
+  /** Tokenise an ordering list: split on commas / "and" / whitespace between numbers */
+  function orderTokens(s) {
+    var t = lower(s)
+      .replace(/\band\b/g, ",")
+      .replace(/;/g, ",")
+      .replace(/\s*,\s*/g, ",");
+    /* if no commas, split on spaces that separate number-like tokens */
+    if (t.indexOf(",") === -1) {
+      t = t.replace(/\s+/g, ",");
+    }
+    return t.split(",").map(function (x) { return x.trim(); }).filter(Boolean);
+  }
+
+  function numEqual(a, b) {
+    var na = Number(a), nb = Number(b);
+    if (!isNaN(na) && !isNaN(nb)) {
+      return Math.abs(na - nb) < 1e-9;
+    }
+    return String(a) === String(b);
+  }
+
+  function areEqualPair(a, b, pairs) {
+    if (!pairs || !pairs.length) return false;
+    for (var i = 0; i < pairs.length; i++) {
+      var p = pairs[i];
+      if ((numEqual(a, p[0]) && numEqual(b, p[1])) ||
+          (numEqual(a, p[1]) && numEqual(b, p[0]))) return true;
+    }
+    return false;
+  }
+
+  function checkOrdering(user, key) {
+    var want = orderTokens(key.primary);
+    var got = orderTokens(user);
+    if (got.length !== want.length) return false;
+    /* allow adjacent swap of equal pairs */
+    var i = 0;
+    while (i < want.length) {
+      if (numEqual(got[i], want[i])) { i++; continue; }
+      /* try swap with next if equal pair */
+      if (i + 1 < want.length &&
+          areEqualPair(want[i], want[i + 1], key.equal_pairs) &&
+          numEqual(got[i], want[i + 1]) &&
+          numEqual(got[i + 1], want[i])) {
+        i += 2;
+        continue;
+      }
+      return false;
+    }
+    return true;
+  }
+
+  function collapseMath(s) {
+    return lower(s)
+      .replace(/\s*\+\s*/g, "+")
+      .replace(/\s*-\s*/g, "-")
+      .replace(/\s*\/\s*/g, "/")
+      .replace(/\s*=\s*/g, "=");
+  }
+
+  function checkPlaceValue(user, key) {
+    var u = lower(user);
+    var candidates = [key.primary].concat(key.alts || []);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = lower(candidates[i]);
+      if (!c) continue;
+      if (u === c) return true;
+      if (collapseMath(u) === collapseMath(c)) return true;
+      /* ignore "or ..." fragments */
+      var c2 = c.replace(/\s*\(or.*$/, "").trim();
+      if (u === c2 || collapseMath(u) === collapseMath(c2)) return true;
+    }
+    /* numeric equality if both parse */
+    var nu = parseNumberish(u);
+    for (var j = 0; j < candidates.length; j++) {
+      var nc = parseNumberish(candidates[j]);
+      if (nu !== null && nc !== null && Math.abs(nu - nc) < 1e-9) return true;
+    }
+    return false;
+  }
+
+  function checkNumberLine(user, key) {
+    var finish = key.finish;
+    if (finish === undefined || finish === null) {
+      /* fall back to primary text */
+      return checkGeneric(user, key);
+    }
+    var n = parseNumberish(user);
+    if (n !== null && Math.abs(n - Number(finish)) < 1e-9) return true;
+    var u = stripFinish(user);
+    var candidates = [String(finish), "−" + Math.abs(finish), "-" + Math.abs(finish)];
+    if (Number(finish) >= 0) candidates.push("+" + finish);
+    for (var i = 0; i < candidates.length; i++) {
+      if (u === lower(candidates[i])) return true;
+    }
+    return checkGeneric(user, key);
+  }
+
+  function checkGeneric(user, key) {
+    var u = lower(user);
+    var candidates = [key.primary, key.raw].concat(key.alts || []);
+    for (var i = 0; i < candidates.length; i++) {
+      if (!candidates[i]) continue;
+      var c = lower(String(candidates[i]).replace(/\s*\(or[^)]*\)\s*/gi, " ").trim());
+      c = c.replace(/^finish\s*(at|=)?\s*/i, "").trim();
+      if (u === c) return true;
+      if (collapseMath(u) === collapseMath(c)) return true;
+      var nu = parseNumberish(u), nc = parseNumberish(c);
+      if (nu !== null && nc !== null && Math.abs(nu - nc) < 1e-9) return true;
+    }
+    return false;
+  }
+
+  function isCorrect(user, key) {
+    if (!normSpace(user)) return false;
+    var t = key.type;
+    if (t === "ordering") return checkOrdering(user, key);
+    if (t === "number_line") return checkNumberLine(user, key);
+    if (t === "place_value") return checkPlaceValue(user, key);
+    return checkGeneric(user, key);
+  }
+
+  function displayAnswer(key) {
+    if (key.type === "number_line" && key.finish !== undefined && key.finish !== null) {
+      return String(key.finish);
+    }
+    return key.primary || key.raw || "";
+  }
+
+  function setParentButtons(enabled) {
+    document.getElementById("sendParentsBtn").disabled = !enabled;
+    document.getElementById("copyResultsBtn").disabled = !enabled;
+  }
+
+  function clearMarks() {
+    document.querySelectorAll(".q").forEach(function (el) {
+      el.classList.remove("correct", "incorrect");
+    });
+    document.querySelectorAll(".feedback").forEach(function (fb) {
+      fb.hidden = true;
+      fb.innerHTML = "";
+    });
+    var sb = document.getElementById("scoreboard");
+    sb.classList.remove("show");
+    sb.textContent = "";
+    var pr = document.getElementById("parentReport");
+    pr.classList.remove("show");
+    document.getElementById("parentReportPre").textContent = "";
+    document.getElementById("copyStatus").textContent = "";
+    lastReportText = "";
+    marked = false;
+    setParentButtons(false);
+  }
+
+  function buildParentReport(score, total, wrongs) {
+    var lines = [];
+    lines.push("Maths warm-up — " + SHORT_DATE);
+    lines.push("Score: " + score + "/" + total);
+    lines.push("");
+    if (wrongs.length === 0) {
+      lines.push("All questions correct — brilliant!");
+    } else {
+      lines.push("Questions to look at again:");
+      wrongs.forEach(function (w) {
+        var yours = w.user ? w.user : "(blank)";
+        lines.push("Q" + w.n + ": " + yours + " -> " + w.correct);
+      });
+    }
+    if (score >= 15) {
+      lines.push("");
+      lines.push("Well done!");
+    }
+    return lines.join(String.fromCharCode(10));
+  }
+
+  function checkAll() {
+    clearMarks();
+    var score = 0;
+    var total = KEY.length;
+    var wrongs = [];
+    KEY.forEach(function (key) {
+      var input = document.getElementById("a" + key.n);
+      var article = document.getElementById("q" + key.n);
+      var fb = document.getElementById("fb" + key.n);
+      if (!input || !article || !fb) return;
+      var user = input.value;
+      var ok = isCorrect(user, key);
+      if (ok) {
+        score++;
+        article.classList.add("correct");
+        fb.innerHTML = '<span class="mark ok">Correct</span>' +
+          '<span class="explain">' + escapeHtml(key.working || ("Answer: " + displayAnswer(key))) + "</span>";
+      } else {
+        article.classList.add("incorrect");
+        var expl = key.working || "";
+        var correctDisp = displayAnswer(key);
+        fb.innerHTML = '<span class="mark bad">Not quite</span>' +
+          '<span class="explain"><strong>Answer:</strong> ' + escapeHtml(correctDisp) +
+          (expl ? " — " + escapeHtml(expl) : "") + "</span>";
+        wrongs.push({
+          n: key.n,
+          user: normSpace(user),
+          correct: correctDisp
+        });
+      }
+      fb.hidden = false;
+    });
+    var sb = document.getElementById("scoreboard");
+    sb.textContent = "Score: " + score + " / " + total;
+    sb.classList.add("show");
+
+    lastScore = score;
+    lastTotal = total;
+    lastReportText = buildParentReport(score, total, wrongs);
+    marked = true;
+    document.getElementById("parentReportPre").textContent = lastReportText;
+    document.getElementById("parentReport").classList.add("show");
+    setParentButtons(true);
+    document.getElementById("copyStatus").textContent = "";
+
+    sb.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function sendToParents() {
+    if (!marked || !lastReportText) return;
+    var subject = "Maths warm-up — " + SHORT_DATE + " — " + lastScore + "/" + lastTotal;
+    var href = "mailto:" + PARENT_EMAILS +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(lastReportText);
+    window.location.href = href;
+  }
+
+  function copyResults() {
+    if (!marked || !lastReportText) return;
+    var status = document.getElementById("copyStatus");
+    function okMsg() { status.textContent = "Copied — you can paste into Messages or email."; }
+    function failMsg() { status.textContent = "Copy didn’t work — screenshot the box above."; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(lastReportText).then(okMsg).catch(function () {
+        fallbackCopy(lastReportText, okMsg, failMsg);
+      });
+    } else {
+      fallbackCopy(lastReportText, okMsg, failMsg);
+    }
+  }
+
+  function fallbackCopy(text, okMsg, failMsg) {
+    try {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      if (ok) okMsg(); else failMsg();
+    } catch (e) {
+      failMsg();
+    }
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  document.getElementById("checkBtn").addEventListener("click", checkAll);
+  document.getElementById("retryBtn").addEventListener("click", function () {
+    clearMarks();
+    /* keep typed answers */
+  });
+  document.getElementById("sendParentsBtn").addEventListener("click", sendToParents);
+  document.getElementById("copyResultsBtn").addEventListener("click", copyResults);
+})();
+</script>
+</body>
+</html>
