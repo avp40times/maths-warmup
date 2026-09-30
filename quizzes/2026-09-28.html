@@ -277,6 +277,29 @@
     padding: 1rem 1.5rem;
   }
   button.btn-parent:hover:not(:disabled) { filter: brightness(0.95); }
+  .who-pick {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0.4rem 0 0.9rem;
+  }
+  .who-pick .who-label { font-weight: 700; }
+  button.btn-who {
+    background: #fff;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    min-width: 6.5rem;
+  }
+  button.btn-who[aria-pressed="true"] {
+    background: var(--accent);
+    color: #fff;
+  }
+  #whoHint {
+    font-size: 0.95rem;
+    color: var(--muted);
+    min-height: 1.3em;
+  }
   button.btn:disabled {
     opacity: 0.45;
     cursor: not-allowed;
@@ -587,6 +610,12 @@
       <div id="scoreboard" role="status" aria-live="polite"></div>
       <div id="parentReport" aria-live="polite">
         <h2>Results for Mum &amp; Alex</h2>
+        <div class="who-pick" role="group" aria-labelledby="whoLabel">
+          <span class="who-label" id="whoLabel">Who are you?</span>
+          <button type="button" class="btn btn-who" id="whoD" data-who="D" aria-pressed="false">I&#8217;m D</button>
+          <button type="button" class="btn btn-who" id="whoC" data-who="C" aria-pressed="false">I&#8217;m C</button>
+          <span id="whoHint" aria-live="polite">Tap I&#8217;m D or I&#8217;m C before sending.</span>
+        </div>
         <pre id="parentReportPre"></pre>
         <div class="parent-actions">
           <button type="button" class="btn btn-parent" id="sendParentsBtn" disabled>Send my results to Mum &amp; Alex</button>
@@ -606,10 +635,13 @@
   "use strict";
   /* answer key (base64 JSON) — not security, just discourage casual peek */
   var KEY_B64 = "W3sibiI6MSwidHlwZSI6Im9yZGVyaW5nIiwicHJpbWFyeSI6IjAuMiAsIDAuMjA3ICwgMC4yNyAsIDAuNzIiLCJyYXciOiIwLjIgLCAwLjIwNyAsIDAuMjcgLCAwLjcyIiwiYWx0cyI6W10sIndvcmtpbmciOiJBbGlnbjogMC4yMDAgPCAwLjIwNyA8IDAuMjcwIDwgMC43MjAuIEFsbCBmb3VyIHZhbHVlcyBhcmUgZGlmZmVyZW50LiIsIm5vdGUiOiIiLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjoyLCJ0eXBlIjoib3JkZXJpbmciLCJwcmltYXJ5IjoiNS45ICwgNS4xOSAsIDUuMDkxICwgNS4wOSIsInJhdyI6IjUuOSAsIDUuMTkgLCA1LjA5MSAsIDUuMDkiLCJhbHRzIjpbXSwid29ya2luZyI6IkFsaWduOiA1LjkwMCA+IDUuMTkwID4gNS4wOTEgPiA1LjA5MC4gQWxsIGZvdXIgdmFsdWVzIGFyZSBkaWZmZXJlbnQuIiwibm90ZSI6IiIsImVxdWFsX3BhaXJzIjpbXSwiZmluaXNoIjpudWxsfSx7Im4iOjMsInR5cGUiOiJvcmRlcmluZyIsInByaW1hcnkiOiIzLjA3ICwgMy4xNyAsIDMuNyAsIDMuNzEiLCJyYXciOiIzLjA3ICwgMy4xNyAsIDMuNyAsIDMuNzEiLCJhbHRzIjpbXSwid29ya2luZyI6IkFsaWduOiAzLjA3IDwgMy4xNyA8IDMuNzAgPCAzLjcxLiBBbGwgZm91ciB2YWx1ZXMgYXJlIGRpZmZlcmVudC4iLCJub3RlIjoiIiwiZXF1YWxfcGFpcnMiOltdLCJmaW5pc2giOm51bGx9LHsibiI6NCwidHlwZSI6Im9yZGVyaW5nIiwicHJpbWFyeSI6IjAuODcgLCAwLjgwNyAsIDAuOCAsIDAuNzgiLCJyYXciOiIwLjg3ICwgMC44MDcgLCAwLjggLCAwLjc4IiwiYWx0cyI6W10sIndvcmtpbmciOiIwLjg3MCA+IDAuODA3ID4gMC44MDAgPiAwLjc4MC4iLCJub3RlIjoiIiwiZXF1YWxfcGFpcnMiOltdLCJmaW5pc2giOm51bGx9LHsibiI6NSwidHlwZSI6InJvdW5kaW5nIiwicHJpbWFyeSI6IjcuNiIsInJhdyI6IjcuNiIsImFsdHMiOltdLCJ3b3JraW5nIjoiSHVuZHJlZHRocyBkaWdpdCA4IOKJpSA1IOKGkiByb3VuZCB0ZW50aHMgdXAuIDcuNSDihpIgNy42LiIsIm5vdGUiOiIiLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjo2LCJ0eXBlIjoicm91bmRpbmciLCJwcmltYXJ5IjoiNC4yIiwicmF3IjoiNC4yIiwiYWx0cyI6W10sIndvcmtpbmciOiJIdW5kcmVkdGhzIGRpZ2l0IDMgPCA1IOKGkiB0ZW50aHMgc3RheS4gNC4yLiIsIm5vdGUiOiIiLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjo3LCJ0eXBlIjoicm91bmRpbmciLCJwcmltYXJ5IjoiOC43MSIsInJhdyI6IjguNzEiLCJhbHRzIjpbXSwid29ya2luZyI6IlRob3VzYW5kdGhzIGRpZ2l0IDQgPCA1IOKGkiBodW5kcmVkdGhzIHN0YXkuIDguNzEuIiwibm90ZSI6IiIsImVxdWFsX3BhaXJzIjpbXSwiZmluaXNoIjpudWxsfSx7Im4iOjgsInR5cGUiOiJyb3VuZGluZyIsInByaW1hcnkiOiIyMCIsInJhdyI6IjIwIiwiYWx0cyI6W10sIndvcmtpbmciOiJUZW50aHMgZGlnaXQgNSDiiaUgNSDihpIgb25lcyB1cC4gMTkg4oaSIDIwLiIsIm5vdGUiOiIiLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjo5LCJ0eXBlIjoicGxhY2VfdmFsdWUiLCJwcmltYXJ5IjoiMSBodW5kcmVkdGgiLCJyYXciOiIxIGh1bmRyZWR0aCAgKG9yIDAuMDEpIiwiYWx0cyI6WyIwLjA2IiwiNiBodW5kcmVkdGhzIiwiLjA2IiwiNi8xMDAiLCJzaXggaHVuZHJlZHRocyIsIjAuMDEiXSwid29ya2luZyI6IlBsYWNlczogMyB0ZW5zLCA5IG9uZXMsIDQgdGVudGhzLCAxIGh1bmRyZWR0aCwgNiB0aG91c2FuZHRocy4iLCJub3RlIjoiIiwiZXF1YWxfcGFpcnMiOltdLCJmaW5pc2giOm51bGx9LHsibiI6MTAsInR5cGUiOiJwbGFjZV92YWx1ZSIsInByaW1hcnkiOiI2ICsgMC4wOSArIDAuMDA0IiwicmF3IjoiNiArIDAuMDkgKyAwLjAwNCIsImFsdHMiOlsiMyArIDAuMDggKyAwLjAwMiIsIjMrMC4wOCswLjAwMiIsIjMgKyA4LzEwMCArIDIvMTAwMCIsIjMgKyAwLjA4MCArIDAuMDAyIl0sIndvcmtpbmciOiI2IG9uZXMgKyAwIHRlbnRocyArIDkgaHVuZHJlZHRocyArIDQgdGhvdXNhbmR0aHMuIiwibm90ZSI6IkFsc28gYWNjZXB0IDYgKyA5LzEwMCArIDQvMTAwMC4iLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjoxMSwidHlwZSI6InBsYWNlX3ZhbHVlIiwicHJpbWFyeSI6ImVpZ2h0eSBwb2ludCB6ZXJvIHNpeCIsInJhdyI6ImVpZ2h0eSBwb2ludCB6ZXJvIHNpeCIsImFsdHMiOlsiZmlmdHkgcG9pbnQgemVybyBzZXZlbiIsImZpZnR5IHBvaW50IDAgNyIsImZpZnR5IGFuZCBzZXZlbiBodW5kcmVkdGhzIiwiNTAgcG9pbnQgMDciLCJmaWZ0eSBwb2ludCBvaCBzZXZlbiJdLCJ3b3JraW5nIjoiODAgb25lcyArIDAgdGVudGhzICsgNiBodW5kcmVkdGhzLiIsIm5vdGUiOiJBbHNvIGFjY2VwdDogZWlnaHR5IGFuZCBzaXggaHVuZHJlZHRocy4iLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjoxMiwidHlwZSI6ImNvbHVtbiIsInByaW1hcnkiOiI5LjA4IiwicmF3IjoiOS4wOCIsImFsdHMiOltdLCJ3b3JraW5nIjoiQWxpZ24gcG9pbnRzOiA1LjYwICsgMy40OCA9IDkuMDguIiwibm90ZSI6IiIsImVxdWFsX3BhaXJzIjpbXSwiZmluaXNoIjpudWxsfSx7Im4iOjEzLCJ0eXBlIjoiY29sdW1uIiwicHJpbWFyeSI6IjEwLjM3IiwicmF3IjoiMTAuMzciLCJhbHRzIjpbXSwid29ya2luZyI6IjguNDcgKyAxLjkwID0gMTAuMzcgKHJlZ3JvdXAgb25lczogOCsxK2NhcnJ5KS4iLCJub3RlIjoiSW5jbHVkZXMgcmVncm91cGluZy4iLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjoxNCwidHlwZSI6ImNvbHVtbiIsInByaW1hcnkiOiIxMy44MCIsInJhdyI6IjEzLjgwIiwiYWx0cyI6W10sIndvcmtpbmciOiIxMy4wMiArIDAuNzggPSAxMy44MC4iLCJub3RlIjoiIiwiZXF1YWxfcGFpcnMiOltdLCJmaW5pc2giOm51bGx9LHsibiI6MTUsInR5cGUiOiJjb2x1bW4iLCJwcmltYXJ5IjoiNS4yMiIsInJhdyI6IjUuMjIiLCJhbHRzIjpbXSwid29ya2luZyI6IjkuNTAg4oiSIDQuMjggPSA1LjIyIChyZWdyb3VwIG9uZXMvdGVudGhzKS4iLCJub3RlIjoiUmVncm91cGluZy4iLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH0seyJuIjoxNiwidHlwZSI6ImNvbHVtbiIsInByaW1hcnkiOiI1LjM2IiwicmF3IjoiNS4zNiIsImFsdHMiOltdLCJ3b3JraW5nIjoiOC4wNiDiiJIgMi43MCA9IDUuMzYuIiwibm90ZSI6IiIsImVxdWFsX3BhaXJzIjpbXSwiZmluaXNoIjpudWxsfSx7Im4iOjE3LCJ0eXBlIjoibnVtYmVyX2xpbmUiLCJwcmltYXJ5Ijoi4oiSNSIsInJhdyI6IkZpbmlzaCBhdCDiiJI1IiwiYWx0cyI6WyItNSIsImZpbmlzaCBhdCAtNSIsImZpbmlzaCBhdCDiiJI1Il0sIndvcmtpbmciOiJTdGFydCDiiJI5OyBtb3ZlIDQgcmlnaHQ6IOKIkjkg4oaSIOKIkjgg4oaSIOKIkjcg4oaSIOKIkjYg4oaSIOKIkjUuIEZpbmlzaCDiiJI1LiIsIm5vdGUiOiJPbmUgaG9wIG9uIHRoZSBuZWdhdGl2ZSBzaWRlIChkb2VzIG5vdCBjcm9zcyB6ZXJvKS4iLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6LTV9LHsibiI6MTgsInR5cGUiOiJudW1iZXJfbGluZSIsInByaW1hcnkiOiLiiJIzIiwicmF3IjoiRmluaXNoIGF0IOKIkjMiLCJhbHRzIjpbIi0zIiwiZmluaXNoIGF0IC0zIiwiZmluaXNoIGF0IOKIkjMiXSwid29ya2luZyI6IlN0YXJ0ICs0OyBzdWJ0cmFjdCA3IOKGkiBtb3ZlIDcgbGVmdDogNCDihpIgMyDihpIgMiDihpIgMSDihpIgMCDihpIg4oiSMSDihpIg4oiSMiDihpIg4oiSMy4gQ3Jvc3NlcyB6ZXJvIG9uY2UuIEZpbmlzaCDiiJIzLiIsIm5vdGUiOiJDcm9zc2VzIHplcm8gb25jZS4iLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6LTN9LHsibiI6MTksInR5cGUiOiJzaWduX2NhbGMiLCJwcmltYXJ5IjoiMTAiLCJyYXciOiIxMCIsImFsdHMiOltdLCJ3b3JraW5nIjoi4oiSKOKIkjMpIOKGkiArMywgc28gNyArIDMgPSAxMC4iLCJub3RlIjoiIiwiZXF1YWxfcGFpcnMiOltdLCJmaW5pc2giOm51bGx9LHsibiI6MjAsInR5cGUiOiJzaWduX2NhbGMiLCJwcmltYXJ5Ijoi4oiSOSIsInJhdyI6IuKIkjkiLCJhbHRzIjpbXSwid29ya2luZyI6IuKIkigrNSkg4oaSIOKIkjUsIHNvIOKIkjQg4oiSIDUgPSDiiJI5LiIsIm5vdGUiOiIiLCJlcXVhbF9wYWlycyI6W10sImZpbmlzaCI6bnVsbH1d";
-  var PARENT_EMAILS = "avp1347@gmail.com,cat_appleby@live.co.uk";
+  var PARENT_EMAILS = "alexvanderlip@gmail.com,cat_appleby@live.co.uk";
   var SHORT_DATE = "Mon 28 Sep";
   var STUDENT = "";
   var lastReportText = "";
+  var lastWrongs = [];
+  var WHO = "";            /* "D" or "C" - required before sending */
+  var SUBJECT_PREFIX = "Maths warm-up results";
   var lastScore = 0;
   var lastTotal = 0;
   var marked = false;
@@ -786,8 +818,23 @@
   }
 
   function setParentButtons(enabled) {
-    document.getElementById("sendParentsBtn").disabled = !enabled;
+    /* send needs both: answers checked AND D/C chosen */
+    document.getElementById("sendParentsBtn").disabled = !(enabled && WHO);
     document.getElementById("copyResultsBtn").disabled = !enabled;
+  }
+
+  function chooseWho(who) {
+    WHO = who;
+    ["whoD", "whoC"].forEach(function (id) {
+      var b = document.getElementById(id);
+      b.setAttribute("aria-pressed", b.getAttribute("data-who") === who ? "true" : "false");
+    });
+    document.getElementById("whoHint").textContent = "Sending as " + who + ".";
+    if (marked) {
+      lastReportText = buildParentReport(lastScore, lastTotal, lastWrongs);
+      document.getElementById("parentReportPre").textContent = lastReportText;
+    }
+    setParentButtons(marked);
   }
 
   function clearMarks() {
@@ -806,13 +853,16 @@
     document.getElementById("parentReportPre").textContent = "";
     document.getElementById("copyStatus").textContent = "";
     lastReportText = "";
+    lastWrongs = [];
     marked = false;
     setParentButtons(false);
   }
 
   function buildParentReport(score, total, wrongs) {
     var lines = [];
-    lines.push("Maths warm-up — " + SHORT_DATE);
+    lines.push(SUBJECT_PREFIX + " — " + SHORT_DATE + " — " + (WHO || "?"));
+    lines.push("Who: " + (WHO || "(not chosen)"));
+    lines.push("Date: " + SHORT_DATE);
     lines.push("Score: " + score + "/" + total);
     lines.push("");
     if (wrongs.length === 0) {
@@ -869,6 +919,7 @@
 
     lastScore = score;
     lastTotal = total;
+    lastWrongs = wrongs;
     lastReportText = buildParentReport(score, total, wrongs);
     marked = true;
     document.getElementById("parentReportPre").textContent = lastReportText;
@@ -881,7 +932,13 @@
 
   function sendToParents() {
     if (!marked || !lastReportText) return;
-    var subject = "Maths warm-up — " + SHORT_DATE + " — " + lastScore + "/" + lastTotal;
+    if (WHO !== "D" && WHO !== "C") {
+      document.getElementById("whoHint").textContent = "Tap I’m D or I’m C first.";
+      document.getElementById("whoD").focus();
+      return;
+    }
+    lastReportText = buildParentReport(lastScore, lastTotal, lastWrongs);
+    var subject = "Maths warm-up results — " + SHORT_DATE + " — " + WHO + " — " + lastScore + "/" + lastTotal;
     var href = "mailto:" + PARENT_EMAILS +
       "?subject=" + encodeURIComponent(subject) +
       "&body=" + encodeURIComponent(lastReportText);
@@ -934,6 +991,8 @@
   });
   document.getElementById("sendParentsBtn").addEventListener("click", sendToParents);
   document.getElementById("copyResultsBtn").addEventListener("click", copyResults);
+  document.getElementById("whoD").addEventListener("click", function () { chooseWho("D"); });
+  document.getElementById("whoC").addEventListener("click", function () { chooseWho("C"); });
 })();
 </script>
 </body>
