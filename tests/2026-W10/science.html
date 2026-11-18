@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Science – End-of-week check</title>
+<style>
+:root{--bg:#faf7f0;--card:#fff;--ink:#1a1a1a;--muted:#555;--accent:#0f8a5f;--soft:#e3f5ec;--ok:#1e7a3a;--okbg:#e8f6ec;--try:#8a5a00;--trybg:#fff4dc;--border:#ddd5c8;--r:16px}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;font-size:1.25rem;line-height:1.55;color:var(--ink);background:var(--bg)}
+.wrap{max-width:760px;margin:0 auto;padding:1.25rem 1.1rem 6rem}
+h1{font-size:clamp(1.5rem,4vw,2rem);margin:.2rem 0 .3rem}
+.sub{color:var(--muted);margin:0 0 1rem}
+.card{background:var(--card);border:2px solid var(--border);border-radius:var(--r);padding:1.25rem 1.3rem;margin:0 0 1.2rem}
+.card.lead{border-top:6px solid var(--accent)}
+.pill{display:inline-block;background:var(--soft);color:var(--accent);font-weight:700;border-radius:999px;padding:.15rem .8rem;font-size:1rem}
+ul.calm{padding-left:1.2rem;margin:.4rem 0}ul.calm li{margin:.3rem 0}
+.who{display:flex;gap:.8rem;flex-wrap:wrap;margin:.6rem 0}
+button{font-family:inherit}
+.btn{font-size:1.3rem;font-weight:700;padding:.85rem 1.5rem;border-radius:14px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;min-height:56px}
+.btn.soft{background:#fff;color:var(--ink);border-color:var(--border)}
+.btn.who-b{background:#fff;color:var(--accent);min-width:8rem}
+.btn.who-b[aria-pressed="true"]{background:var(--accent);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.progress{display:flex;align-items:center;gap:.8rem;margin:0 0 1rem;color:var(--muted);font-size:1.05rem}
+.bar{flex:1;height:12px;background:#ece6da;border-radius:999px;overflow:hidden}.bar>i{display:block;height:100%;background:var(--accent);width:0}
+.qnum{font-weight:800;color:var(--accent);font-size:1.15rem}
+.lo{font-size:.95rem;color:var(--muted);margin-left:.4rem}
+.prompt{font-size:1.4rem;font-weight:550;margin:.5rem 0 1.1rem}
+.eq{font-family:"Cambria Math","Times New Roman",serif;font-size:1.55rem;white-space:nowrap;background:var(--soft);padding:0 .45rem;border-radius:8px}
+.hint{font-size:1.05rem;color:var(--muted);font-weight:400}
+.tag-old{display:inline-block;font-size:.9rem;font-weight:700;background:#efe9ff;color:#5b3fb3;border-radius:999px;padding:.05rem .65rem;margin-right:.4rem;vertical-align:middle}
+.opts{display:grid;gap:.75rem}
+.opt{display:flex;gap:.8rem;align-items:flex-start;text-align:left;width:100%;font-size:1.25rem;padding:.9rem 1rem;border-radius:14px;border:2px solid var(--border);background:#fff;cursor:pointer;color:var(--ink);min-height:60px}
+.opt .let{flex:0 0 2.2rem;height:2.2rem;border-radius:50%;background:var(--soft);color:var(--accent);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt[aria-pressed="true"]{border-color:var(--accent);background:var(--soft);box-shadow:0 0 0 3px var(--soft)}
+.opt[aria-pressed="true"] .let{background:var(--accent);color:#fff}
+input.ans,textarea.ans{width:100%;font-size:1.35rem;padding:.8rem .95rem;border:2px solid #bbb;border-radius:12px;font-family:inherit;background:#fff}
+textarea.ans{min-height:9rem;font-size:1.2rem;line-height:1.5}
+.ans:focus,.opt:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.nav{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(transparent,var(--bg) 25%);padding:1.2rem 1rem 1rem}
+.nav .in{max-width:760px;margin:0 auto;display:flex;justify-content:space-between;gap:.8rem}
+.note{font-size:1.05rem;color:var(--muted)}
+.fb{border-radius:14px;padding:.9rem 1.1rem;margin:.6rem 0;border:2px solid var(--border);background:#fff}
+.fb.ok{background:var(--okbg);border-color:#bfe3c9}
+.fb.try{background:var(--trybg);border-color:#f0dca8}
+.fb.wr{background:#eef4ff;border-color:#c9d8f5}
+.fb .h{font-weight:700}.fb .why{color:#333;font-size:1.08rem;margin-top:.3rem}
+.big{font-size:1.6rem;font-weight:800}
+pre#report{white-space:pre-wrap;background:#fff;border:1px solid var(--border);border-radius:12px;padding:.9rem;font-family:inherit;font-size:1rem;max-height:18rem;overflow:auto}
+.hide{display:none!important}
+.sr{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <!-- START -->
+  <section id="s-start">
+    <span class="pill">End-of-week check</span>
+    <h1>Science · Week 9 (w/c 16 Nov 2026)</h1>
+    <p class="sub">Acids and alkalis: the pH scale and neutralisation</p>
+    <div class="card lead">
+      <p style="margin-top:0"><b>This is a calm check, not a race.</b></p>
+      <ul class="calm">
+        <li>About <b>20 minutes</b> is plenty. There is <b>no timer</b> – take breaks if you need them.</li>
+        <li>15 questions, one at a time. Most are tap-an-answer.</li>
+        <li>You can go <b>Back</b> to change an answer, or skip one and come back.</li>
+        <li>It's fine not to know something – that just shows Mum &amp; Alex what to practise next.</li>
+        <li>At the end, tap <b>Send my results to Mum &amp; Alex</b>.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p style="margin:0 0 .3rem"><b>Who is doing this check?</b></p>
+      <div class="who">
+        <button type="button" class="btn who-b" id="whoD" aria-pressed="false">I'm D</button>
+        <button type="button" class="btn who-b" id="whoC" aria-pressed="false">I'm C</button>
+      </div>
+      <p class="note" id="whoNote">Tap your letter to start.</p>
+    </div>
+    <button type="button" class="btn" id="startBtn" disabled>Start →</button>
+  </section>
+
+  <!-- QUESTION -->
+  <section id="s-q" class="hide">
+    <div class="progress"><span id="progTxt"></span><div class="bar"><i id="progBar"></i></div></div>
+    <div class="card lead" id="qCard"></div>
+  </section>
+
+  <!-- REVIEW -->
+  <section id="s-review" class="hide">
+    <h1>Nearly done 🙂</h1>
+    <div class="card lead">
+      <p id="reviewTxt" style="margin-top:0"></p>
+      <div id="reviewList"></div>
+      <p class="note">When you tap <b>Finish</b>, your answers are locked in and you'll see how you did.</p>
+    </div>
+    <button type="button" class="btn" id="finishBtn">Finish ✓</button>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="s-res" class="hide">
+    <h1>Well done for finishing! 🌟</h1>
+    <div class="card lead">
+      <p class="big" id="scoreTxt" style="margin:.2rem 0"></p>
+      <p id="scoreSub" class="note" style="margin:.2rem 0 0"></p>
+    </div>
+    <div class="card">
+      <p style="margin-top:0"><b>Last step:</b> send your answers to Mum &amp; Alex.</p>
+      <button type="button" class="btn" id="sendBtn">Send my results to Mum &amp; Alex</button>
+      <p class="note" style="margin:.7rem 0 .3rem">This opens an email with everything filled in – just press <b>Send</b>.</p>
+      <button type="button" class="btn soft" id="copyBtn">Copy results instead</button>
+      <span id="copyStatus" class="note" aria-live="polite"></span>
+    </div>
+    <h2 style="font-size:1.3rem">Your answers</h2>
+    <div id="fbList"></div>
+    <details class="card"><summary>Show the results text</summary><pre id="report"></pre></details>
+  </section>
+</div>
+
+<div class="nav hide" id="nav"><div class="in">
+  <button type="button" class="btn soft" id="backBtn">← Back</button>
+  <button type="button" class="btn" id="nextBtn">Next →</button>
+</div></div>
+
+<script>
+(function(){
+"use strict";
+var TEST = JSON.parse(decodeURIComponent(escape(atob("eyJ0ZXN0X2lkIjogIjIwMjYtVzEwLXNjaWVuY2UiLCAidGl0bGUiOiAiU2NpZW5jZSIsICJ3ZWVrX2xhYmVsIjogIldlZWsgOSAody9jIDE2IE5vdiAyMDI2KSIsICJ3ZWVrX3Nob3J0IjogIldrIDkiLCAib3V0Y29tZXMiOiB7IlMxIjogIlVzZSB0aGUgcEggc2NhbGU6IDDigJMxNDsgYWNpZHMgYmVsb3cgNywgbmV1dHJhbCA3LCBhbGthbGlzIGFib3ZlIDciLCAiUzIiOiAiSWRlbnRpZnkgZXZlcnlkYXkgYWNpZHMgYW5kIGFsa2FsaXMgYW5kIHRoZWlyIHByb3BlcnRpZXMiLCAiUzMiOiAiRGVzY3JpYmUgaGF6YXJkczogY29ycm9zaXZlIGFuZCBpcnJpdGFudCIsICJTNCI6ICJVc2UgaW5kaWNhdG9ycyAodW5pdmVyc2FsIGluZGljYXRvciBjb2xvdXJzKSIsICJTNSI6ICJFeHBsYWluIG5ldXRyYWxpc2F0aW9uIGFuZCBpdHMgZXZlcnlkYXkgdXNlcyAoc3RpbmdzLCBhbnRhY2lkcywgdG9vdGhwYXN0ZSkiLCAiUzYiOiAiUmV0ZW50aW9uIChXZWVrcyA34oCTOCk6IGxpZmUgcHJvY2Vzc2VzIGFuZCBjbGFzc2lmaWNhdGlvbiJ9LCAicXVlc3Rpb25zIjogW3sidHlwZSI6ICJtYyIsICJsbyI6ICJTMSIsICJwcm9tcHQiOiAiVGhlIHBIIHNjYWxlIHJ1bnMgZnJvbeKApiIsICJvcHRpb25zIjogWyIxIHRvIDEwIiwgIjAgdG8gMTQiLCAiMCB0byA3IiwgIjEgdG8gMTAwIl0sICJhbnN3ZXIiOiAxLCAid2h5IjogIlRoZSBwSCBzY2FsZSBydW5zIGZyb20gMCB0byAxNC4iLCAibWFya3MiOiAxfSwgeyJ0eXBlIjogIm1jIiwgImxvIjogIlMxIiwgInByb21wdCI6ICJBIHNvbHV0aW9uIGhhcyBhIHBIIG9mIDxiPjc8L2I+LiBJdCBpc+KApiIsICJvcHRpb25zIjogWyJhbiBhY2lkIiwgImFuIGFsa2FsaSIsICJuZXV0cmFsIiwgImNvcnJvc2l2ZSJdLCAiYW5zd2VyIjogMiwgIndoeSI6ICJwSCA3IGlzIG5ldXRyYWwg4oCTIG5laXRoZXIgYWNpZCBub3IgYWxrYWxpIChsaWtlIHB1cmUgd2F0ZXIpLiIsICJtYXJrcyI6IDF9LCB7InR5cGUiOiAibWMiLCAibG8iOiAiUzEiLCAicHJvbXB0IjogIldoaWNoIHBIIHNob3dzIHRoZSA8Yj5zdHJvbmdlc3QgYWNpZDwvYj4/IiwgIm9wdGlvbnMiOiBbInBIIDEiLCAicEggNiIsICJwSCA3IiwgInBIIDEzIl0sICJhbnN3ZXIiOiAwLCAid2h5IjogIkFjaWRzIGFyZSBiZWxvdyA3LCBhbmQgdGhlIGxvd2VyIHRoZSBudW1iZXIsIHRoZSBzdHJvbmdlciB0aGUgYWNpZC4gcEggMSBpcyB0aGUgbW9zdCBhY2lkaWMgaGVyZS4iLCAibWFya3MiOiAxfSwgeyJ0eXBlIjogIm1jIiwgImxvIjogIlMyIiwgInByb21wdCI6ICJXaGljaCBvZiB0aGVzZSBpcyBhbiA8Yj5hY2lkPC9iPj8iLCAib3B0aW9ucyI6IFsiU29hcCIsICJUb290aHBhc3RlIiwgIkxlbW9uIGp1aWNlIiwgIlB1cmUgd2F0ZXIiXSwgImFuc3dlciI6IDIsICJ3aHkiOiAiTGVtb24ganVpY2UgKGFuZCB2aW5lZ2FyKSBhcmUgYWNpZHMg4oCTIHRoZXkgdGFzdGUgc291ci4gU29hcCBhbmQgdG9vdGhwYXN0ZSBhcmUgYWxrYWxpczsgcHVyZSB3YXRlciBpcyBuZXV0cmFsLiIsICJtYXJrcyI6IDF9LCB7InR5cGUiOiAibWMiLCAibG8iOiAiUzIiLCAicHJvbXB0IjogIldoaWNoIG9mIHRoZXNlIGRlc2NyaWJlcyBhbiA8Yj5hbGthbGk8L2I+PyIsICJvcHRpb25zIjogWyJUYXN0ZXMgc291ciwgcEggYmVsb3cgNyIsICJGZWVscyBzb2FweSwgcEggYWJvdmUgNyIsICJBbHdheXMgZ3JlZW4sIHBIIGV4YWN0bHkgNyIsICJPbmx5IGZvdW5kIGluIGJhdHRlcmllcyJdLCAiYW5zd2VyIjogMSwgIndoeSI6ICJBbGthbGlzIGhhdmUgYSBwSCBhYm92ZSA3LCBvZnRlbiBmZWVsIHNvYXB5LCBhbmQgY29udGFpbiB0aGUgaHlkcm94aWRlIChPSCkgZ3JvdXAg4oCTIGUuZy4gc29hcCwgdG9vdGhwYXN0ZS4iLCAibWFya3MiOiAxfSwgeyJ0eXBlIjogIm1jIiwgImxvIjogIlMzIiwgInByb21wdCI6ICJBIDxiPmNvbmNlbnRyYXRlZDwvYj4gYWNpZCBpcyBsYWJlbGxlZCA8Yj5jb3Jyb3NpdmU8L2I+LiBXaGF0IGRvZXMgY29ycm9zaXZlIG1lYW4/IiwgIm9wdGlvbnMiOiBbIkl0IHRhc3RlcyBzb3VyIiwgIkl0IGNoYW5nZXMgY29sb3VyIGluIGFuIGluZGljYXRvciIsICJJdCBjYW4gZGVzdHJveSBza2luIGFuZCBhdHRhY2sgbWF0ZXJpYWxzIHN1Y2ggYXMgbWV0YWxzIiwgIkl0IGlzIHNhZmUgdG8gdG91Y2giXSwgImFuc3dlciI6IDIsICJ3aHkiOiAiQ29ycm9zaXZlIGNoZW1pY2FscyBkZXN0cm95L2RhbWFnZSBsaXZpbmcgdGlzc3VlIGFuZCBhdHRhY2sgbWF0ZXJpYWxzLiBEaWx1dGUgYWNpZHMgYXJlIGxlc3MgZGFuZ2Vyb3VzIGJ1dCBjYW4gc3RpbGwgYmUgYW4gaXJyaXRhbnQgKHJlZCwgYmxpc3RlcmVkIHNraW4pLiIsICJtYXJrcyI6IDF9LCB7InR5cGUiOiAibWMiLCAibG8iOiAiUzQiLCAicHJvbXB0IjogIldoYXQgaXMgYW4gPGI+aW5kaWNhdG9yPC9iPj8iLCAib3B0aW9ucyI6IFsiQSBzdWJzdGFuY2UgdGhhdCBjaGFuZ2VzIGNvbG91ciBkZXBlbmRpbmcgb24gcEgiLCAiQSBzdHJvbmcgYWNpZCB1c2VkIGluIGJhdHRlcmllcyIsICJBIHR5cGUgb2Ygc2FsdCIsICJBIG1hY2hpbmUgdGhhdCBoZWF0cyBsaXF1aWRzIl0sICJhbnN3ZXIiOiAwLCAid2h5IjogIkFuIGluZGljYXRvciBjaGFuZ2VzIGNvbG91ciBkZXBlbmRpbmcgb24gd2hldGhlciBhIHN1YnN0YW5jZSBpcyBhY2lkLCBhbGthbGkgb3IgbmV1dHJhbCDigJMgZS5nLiB1bml2ZXJzYWwgaW5kaWNhdG9yLCBsaXRtdXMgcGFwZXIuIiwgIm1hcmtzIjogMX0sIHsidHlwZSI6ICJtYyIsICJsbyI6ICJTNCIsICJwcm9tcHQiOiAiVW5pdmVyc2FsIGluZGljYXRvciBpcyBhZGRlZCB0byBhIGxpcXVpZCBhbmQgaXQgdHVybnMgPGI+Z3JlZW48L2I+LiBUaGUgbGlxdWlkIGlzIG1vc3QgbGlrZWx54oCmIiwgIm9wdGlvbnMiOiBbImEgc3Ryb25nIGFjaWQiLCAibmV1dHJhbCAoYWJvdXQgcEggNykiLCAiYSBzdHJvbmcgYWxrYWxpIiwgImNvcnJvc2l2ZSJdLCAiYW5zd2VyIjogMSwgIndoeSI6ICJHcmVlbiBvbiB0aGUgdW5pdmVyc2FsIGluZGljYXRvciBjb2xvdXIgY2hhcnQgbWVhbnMgYWJvdXQgcEggNyDigJMgbmV1dHJhbC4iLCAibWFya3MiOiAxfSwgeyJ0eXBlIjogIm1jIiwgImxvIjogIlM0IiwgInByb21wdCI6ICJWaW5lZ2FyIGlzIHRlc3RlZCB3aXRoIHVuaXZlcnNhbCBpbmRpY2F0b3IuIFdoaWNoIGNvbG91ciBpcyBpdCBtb3N0IGxpa2VseSB0byB0dXJuPyIsICJvcHRpb25zIjogWyJSZWQgLyBvcmFuZ2UiLCAiR3JlZW4iLCAiRGFyayBwdXJwbGUiLCAiSXQgc3RheXMgdGhlIHNhbWUiXSwgImFuc3dlciI6IDAsICJ3aHkiOiAiVmluZWdhciBpcyBhbiBhY2lkLCBzbyB1bml2ZXJzYWwgaW5kaWNhdG9yIHR1cm5zIHJlZC9vcmFuZ2UgKGFjaWQgZW5kIG9mIHRoZSBzY2FsZSkuIiwgIm1hcmtzIjogMX0sIHsidHlwZSI6ICJtYyIsICJsbyI6ICJTNSIsICJwcm9tcHQiOiAiV2hpY2ggaXMgdGhlIHdvcmQgZXF1YXRpb24gZm9yIDxiPm5ldXRyYWxpc2F0aW9uPC9iPj8iLCAib3B0aW9ucyI6IFsiYWNpZCArIGFsa2FsaSDihpIgc2FsdCArIHdhdGVyIiwgImFjaWQgKyB3YXRlciDihpIgYWxrYWxpIiwgInNhbHQgKyB3YXRlciDihpIgYWNpZCArIGFsa2FsaSIsICJhY2lkICsgYWNpZCDihpIgbmV1dHJhbCJdLCAiYW5zd2VyIjogMCwgIndoeSI6ICJhY2lkICsgYWxrYWxpIOKGkiBhIHNhbHQgKyB3YXRlciAoYSBuZXV0cmFsIHNvbHV0aW9uLCBwSCA3KS4iLCAibWFya3MiOiAxfSwgeyJ0eXBlIjogIm1jIiwgImxvIjogIlM1IiwgInByb21wdCI6ICJBIDxiPmJlZSBzdGluZzwvYj4gaXMgYWNpZGljIChhYm91dCBwSCAzKS4gV2hpY2ggd291bGQgYmUgYmVzdCB0byBuZXV0cmFsaXNlIGl0PyIsICJvcHRpb25zIjogWyJMZW1vbiBqdWljZSAocEggMikiLCAiQmxhY2sgY29mZmVlIChwSCA1KSIsICJCaWNhcmJvbmF0ZSBvZiBzb2RhIChwSCA5KSIsICJWaW5lZ2FyIChwSCAzKSJdLCAiYW5zd2VyIjogMiwgIndoeSI6ICJBbiBhY2lkIGlzIG5ldXRyYWxpc2VkIGJ5IGFuIGFsa2FsaSwgc28gdXNlIGEgd2VhayBhbGthbGkgbGlrZSBiaWNhcmJvbmF0ZSBvZiBzb2RhLiAoQSB3YXNwIHN0aW5nIGlzIGFsa2FsaW5lLCBzbyB5b3UnZCB1c2UgYSB3ZWFrIGFjaWQgbGlrZSB2aW5lZ2FyLikiLCAibWFya3MiOiAxfSwgeyJ0eXBlIjogIndyaXR0ZW4iLCAibG8iOiAiUzUiLCAicHJvbXB0IjogIldoZW4geW91IGhhdmUgaW5kaWdlc3Rpb24sIHRoZXJlIGlzIHRvbyBtdWNoIDxiPmFjaWQ8L2I+IGluIHlvdXIgc3RvbWFjaC4gRXhwbGFpbiBob3cgYW4gPGI+YW50YWNpZDwvYj4gdGFibGV0IGhlbHBzLiIsICJhbnN3ZXIiOiAiVGhlIGFudGFjaWQgaXMgYW4gYWxrYWxpIChhIGJhc2UpIFsxXTsgaXQgbmV1dHJhbGlzZXMgdGhlIGV4dHJhIHN0b21hY2ggYWNpZCwgc28gdGhlIHBIIHJpc2VzIHRvd2FyZHMgNyAvIGl0IGlzIGxlc3MgYWNpZGljIFsxXS4iLCAicGxhY2Vob2xkZXIiOiAiV3JpdGUgMeKAkzIgc2VudGVuY2VzIiwgIndoeSI6ICJBbnRhY2lkcyBhcmUgYWxrYWxpcyDigJMgdGhleSBuZXV0cmFsaXNlIHRoZSBleHRyYSBhY2lkLCBtb3ZpbmcgdGhlIHBIIHRvd2FyZHMgNy4iLCAibWFya3MiOiAyfSwgeyJ0eXBlIjogIndyaXR0ZW4iLCAibG8iOiAiUzIiLCAicHJvbXB0IjogIk5hbWUgPGI+b25lIGFjaWQ8L2I+IGFuZCA8Yj5vbmUgYWxrYWxpPC9iPi4iLCAiYW5zd2VyIjogIkFjaWQ6IGUuZy4gbGVtb24ganVpY2UsIHZpbmVnYXIsIHN1bGZ1cmljIGFjaWQsIG5pdHJpYyBhY2lkLCBoeWRyb2NobG9yaWMgYWNpZCwgY29sYS4gQWxrYWxpOiBlLmcuIHNvYXAsIHRvb3RocGFzdGUsIGJpY2FyYm9uYXRlIG9mIHNvZGEsIHdhc2hpbmcgcG93ZGVyLCBibGVhY2gsIHNvZGl1bSBoeWRyb3hpZGUuIiwgInBsYWNlaG9sZGVyIjogIkFjaWQ6IOKApiAgIEFsa2FsaTog4oCmIiwgIndoeSI6ICJBY2lkczogbGVtb24ganVpY2UsIHZpbmVnYXIuIEFsa2FsaXM6IHNvYXAsIHRvb3RocGFzdGUuIiwgIm1hcmtzIjogMn0sIHsidHlwZSI6ICJtYyIsICJsbyI6ICJTNiIsICJwcm9tcHQiOiAiPHNwYW4gY2xhc3M9J3RhZy1vbGQnPkZyb20gV2Vla3MgN+KAkzg8L3NwYW4+IEEgY2FyIG1vdmVzIGFuZCBnaXZlcyBvdXQgd2FzdGUgZ2FzZXMuIFdoeSBpcyBhIGNhciBzdGlsbCA8Yj5ub3Q8L2I+IGEgbGl2aW5nIHRoaW5nPyIsICJvcHRpb25zIjogWyJCZWNhdXNlIGl0IGlzIG1hZGUgb2YgbWV0YWwiLCAiQmVjYXVzZSBpdCBjYW5ub3QgY2Fycnkgb3V0IGFsbCA4IGxpZmUgcHJvY2Vzc2VzLCBlLmcuIGl0IGNhbm5vdCBncm93IG9yIHJlcHJvZHVjZSIsICJCZWNhdXNlIGl0IGlzIHRvbyBiaWciLCAiQmVjYXVzZSBpdCB1c2VzIGZ1ZWwiXSwgImFuc3dlciI6IDEsICJ3aHkiOiAiTGl2aW5nIHRoaW5ncyBjYXJyeSBvdXQgYWxsIHRoZSBsaWZlIHByb2Nlc3NlcyAoTVJTIEMgR1JFTikuIEEgY2FyIGNhbid0IGdyb3cgb3IgcmVwcm9kdWNlLiIsICJtYXJrcyI6IDF9LCB7InR5cGUiOiAibWMiLCAibG8iOiAiUzYiLCAicHJvbXB0IjogIjxzcGFuIGNsYXNzPSd0YWctb2xkJz5Gcm9tIFdlZWtzIDfigJM4PC9zcGFuPiBNdXNocm9vbXMsIHRvYWRzdG9vbHMgYW5kIHllYXN0IGJlbG9uZyB0byB3aGljaCBraW5nZG9tPyIsICJvcHRpb25zIjogWyJQbGFudCBraW5nZG9tIiwgIkFuaW1hbCBraW5nZG9tIiwgIkZ1bmdpIGtpbmdkb20iLCAiQmFjdGVyaWEga2luZ2RvbSJdLCAiYW5zd2VyIjogMiwgIndoeSI6ICJUaGV5IGFyZSBmdW5naSDigJMgdGhleSBkb24ndCBtYWtlIHRoZWlyIG93biBmb29kIGJ5IHBob3Rvc3ludGhlc2lzLiIsICJtYXJrcyI6IDF9XX0="))));
+var PARENT_EMAILS = "alexvanderlip@gmail.com,cat_appleby@live.co.uk";
+var Q = TEST.questions, N = Q.length;
+var st = {who:"", a:{}, i:0, started:null, finished:null, done:false};
+var LS = "wkcheck-" + TEST.test_id;
+
+function $(id){return document.getElementById(id);}
+function show(id){["s-start","s-q","s-review","s-res"].forEach(function(s){$(s).classList.toggle("hide", s!==id);}); $("nav").classList.toggle("hide", id!=="s-q" && id!=="s-review"); window.scrollTo(0,0);}
+function save(){try{localStorage.setItem(LS+"-"+st.who, JSON.stringify(st));}catch(e){}}
+function load(who){try{var s=JSON.parse(localStorage.getItem(LS+"-"+who)||"null"); if(s&&s.who===who) return s;}catch(e){} return null;}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function plain(h){var d=document.createElement("div"); d.innerHTML=h; return (d.textContent||"").replace(/\s+/g," ").trim();}
+
+function chooseWho(w){
+  st.who = w;
+  $("whoD").setAttribute("aria-pressed", w==="D"); $("whoC").setAttribute("aria-pressed", w==="C");
+  var prev = load(w);
+  if(prev && !prev.done && Object.keys(prev.a).length){ st = prev; $("whoNote").textContent = "Hi " + w + "! Your answers so far are saved – tap Start to carry on."; }
+  else { st = {who:w, a:{}, i:0, started:null, finished:null, done:false}; $("whoNote").textContent = "Hi " + w + "! Tap Start when you're ready."; }
+  $("startBtn").disabled = false;
+}
+
+function renderQ(){
+  var q = Q[st.i], n = st.i+1, h = "";
+  $("progTxt").textContent = "Question " + n + " of " + N;
+  $("progBar").style.width = Math.round(100*st.i/N) + "%";
+  h += '<div><span class="qnum">Question ' + n + '</span>' + (q.type==="written" ? '<span class="lo">· write your answer</span>' : '') + '</div>';
+  h += '<div class="prompt" id="qp">' + q.prompt + '</div>';
+  var cur = st.a[n];
+  if(q.type==="mc"){
+    h += '<div class="opts" role="group" aria-labelledby="qp">';
+    q.options.forEach(function(o,k){
+      h += '<button type="button" class="opt" data-k="'+k+'" aria-pressed="'+(String(cur)===String(k))+'"><span class="let">'+"ABCDEF"[k]+'</span><span>'+esc(o)+'</span></button>';
+    });
+    h += '</div>';
+  } else if(q.type==="short"){
+    h += '<label class="sr" for="ans">Your answer</label><input class="ans" id="ans" type="text" autocomplete="off" spellcheck="false" placeholder="'+esc(q.placeholder||"Your answer")+'" value="'+esc(cur||"")+'"/>';
+  } else {
+    h += '<label class="sr" for="ans">Your answer</label><textarea class="ans" id="ans" placeholder="'+esc(q.placeholder||"")+'">'+esc(cur||"")+'</textarea>';
+  }
+  $("qCard").innerHTML = h;
+  Array.prototype.forEach.call(document.querySelectorAll(".opt"), function(b){
+    b.addEventListener("click", function(){
+      st.a[n] = Number(b.getAttribute("data-k")); save();
+      Array.prototype.forEach.call(document.querySelectorAll(".opt"), function(x){x.setAttribute("aria-pressed", x===b);});
+    });
+  });
+  var inp = $("ans");
+  if(inp){ inp.addEventListener("input", function(){ st.a[n] = inp.value; save(); });
+    if(q.type==="short") inp.addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); next(); }}); }
+  $("backBtn").disabled = false;
+  $("nextBtn").textContent = n===N ? "Review →" : "Next →";
+}
+function answered(n){var v=st.a[n]; return v!==undefined && v!==null && String(v).trim()!=="";}
+function next(){ if(st.i < N-1){ st.i++; save(); renderQ(); window.scrollTo(0,0);} else { review(); } }
+function back(){ if(!$("s-review").classList.contains("hide")){ show("s-q"); renderQ(); return; } if(st.i>0){ st.i--; save(); renderQ(); } else { show("s-start"); } }
+function review(){
+  var miss = []; for(var n=1;n<=N;n++) if(!answered(n)) miss.push(n);
+  $("reviewTxt").innerHTML = miss.length ? "You've answered <b>"+(N-miss.length)+" of "+N+"</b>. These are still blank – that's OK, or tap one to have another go:" : "You've answered <b>all "+N+"</b> questions. Brilliant!";
+  $("reviewList").innerHTML = miss.map(function(n){return '<button type="button" class="btn soft" style="margin:.25rem" data-go="'+n+'">Q'+n+'</button>';}).join("");
+  Array.prototype.forEach.call(document.querySelectorAll("[data-go]"), function(b){ b.addEventListener("click", function(){ st.i = Number(b.getAttribute("data-go"))-1; show("s-q"); renderQ(); }); });
+  show("s-review"); $("nextBtn").classList.add("hide");
+}
+
+/* ---------- marking ---------- */
+function normNum(s){
+  s = String(s).toLowerCase().replace(/[\u2212\u2013\u2014]/g,"-").replace(/\s+/g,"").replace(/^[a-z]=/,"").replace(/[.]$/,"");
+  var m = s.match(/^(-?\d+)\/(\d+)$/); if(m) return Number(m[1])/Number(m[2]);
+  if(/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return Number(s);
+  return NaN;
+}
+function normExpr(s){
+  s = String(s).toLowerCase().replace(/[\u2212\u2013]/g,"-").replace(/pence|p\b/g,"").replace(/[×*\s]/g,"");
+  return s.split("+").filter(Boolean).sort().join("+");
+}
+function lev(a,b){var d=[],i,j;for(i=0;i<=a.length;i++){d[i]=[i];}for(j=0;j<=b.length;j++)d[0][j]=j;for(i=1;i<=a.length;i++)for(j=1;j<=b.length;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[a.length][b.length];}
+function markOne(q, v){
+  if(v===undefined || v===null || String(v).trim()==="") return "blank";
+  if(q.type==="mc") return Number(v)===q.answer ? "ok" : "try";
+  if(q.type==="short"){
+    if(q.kind==="num"){ var x = normNum(v); return q.accept.some(function(a){return Math.abs(normNum(a)-x)<1e-9;}) ? "ok" : "try"; }
+    if(q.kind==="expr"){ var e = normExpr(v); return q.accept.some(function(a){return normExpr(a)===e;}) ? "ok" : "try"; }
+    var w = String(v).toLowerCase().replace(/[^a-z ]/g,"").trim();
+    return (q.accept.indexOf(w)>=0 || lev(w, q.answer)<=2) ? "ok" : "try";
+  }
+  return "written";
+}
+function shown(q, v){ if(q.type==="mc") return (v===undefined||v===null||v==="") ? "(blank)" : "ABCDEF"[v] + ") " + q.options[v]; return (v===undefined||String(v).trim()==="") ? "(blank)" : String(v).trim(); }
+function correctTxt(q){ return q.type==="mc" ? "ABCDEF"[q.answer] + ") " + q.options[q.answer] : q.answer; }
+
+function finish(){
+  st.done = true; st.finished = new Date().toISOString(); save();
+  $("nextBtn").classList.remove("hide");
+  var auto=0, got=0, wr=0, wrMarks=0, per={}, fb="", lines=[], data={};
+  Q.forEach(function(q,k){
+    var n=k+1, v=st.a[n], r=markOne(q,v);
+    per[q.lo] = per[q.lo] || {got:0, of:0, wr:0};
+    if(r==="written"||(q.type==="written")){ wr++; wrMarks += (q.marks||1); per[q.lo].wr++; r = (r==="blank") ? "blank-written" : "written"; }
+    else { auto++; per[q.lo].of++; if(r==="ok"){got++; per[q.lo].got++;} }
+    data[n] = (v===undefined ? null : v);
+    var tag = r==="ok" ? "✓" : r==="try" ? "✗" : r==="blank" ? "–" : "WRITTEN";
+    lines.push("Q"+n+" ["+q.lo+"] "+tag+" "+shown(q,v) + (r==="try"||r==="blank" ? "   (answer: "+plain(correctTxt(q))+")" : ""));
+    var cls = r==="ok" ? "ok" : (r==="written"||r==="blank-written") ? "wr" : "try";
+    var head = r==="ok" ? "✓ Yes – well done!" : r==="try" ? "Not quite – here's the answer: " + esc(plain(correctTxt(q))) : r==="blank" ? "Skipped – that's OK. The answer is: " + esc(plain(correctTxt(q))) : "💬 Mum & Alex will read this one.";
+    fb += '<div class="fb '+cls+'"><div><span class="qnum">Q'+n+'</span> '+plain(q.prompt).slice(0,140)+'</div>'
+       + '<div class="note">Your answer: '+esc(shown(q,v))+'</div>'
+       + '<div class="h">'+head+'</div>' + (q.why ? '<div class="why">'+esc(q.why)+'</div>' : '') + '</div>';
+  });
+  var t0 = st.started ? new Date(st.started) : null, t1 = new Date(st.finished);
+  var mins = t0 ? Math.max(1, Math.round((t1-t0)/60000)) : "?";
+  var when = t1.toLocaleString("en-GB",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/London"});
+  var head = [
+    "END-OF-WEEK CHECK RESULTS",
+    "Subject: " + TEST.title + " – " + TEST.week_label,
+    "Child: " + st.who,
+    "Finished: " + when + " (UK) – took about " + mins + " min",
+    "Auto-marked: " + got + " / " + auto,
+    "Written answers to mark: " + wr + " (" + wrMarks + " marks)",
+    ""];
+  var byLo = ["", "By learning outcome (auto-marked):"];
+  Object.keys(TEST.outcomes).forEach(function(lo){ var p = per[lo]; if(!p) return;
+    byLo.push(lo + ": " + (p.of ? p.got + "/" + p.of : "–") + (p.wr ? " + " + p.wr + " written" : "")); });
+  var payload = {v:1, test:TEST.test_id, who:st.who, started:st.started, finished:st.finished, a:data};
+  var report = head.concat(lines, byLo, ["", "---DATA---", JSON.stringify(payload)]).join("\n");
+  st.report = report; st.got = got; st.auto = auto; save();
+  $("scoreTxt").textContent = "You got " + got + " out of " + auto + " quiz questions right.";
+  $("scoreSub").textContent = wr ? "Mum & Alex will read your " + (wr===1 ? "written answer" : wr + " written answers") + " too." : "";
+  $("fbList").innerHTML = fb; $("report").textContent = report;
+  show("s-res");
+}
+function send(){
+  if(!st.report) return;
+  var subject = "End-of-week check – " + TEST.title + " – " + TEST.week_short + " – " + st.who + " – " + st.got + "/" + st.auto + " auto-marked";
+  window.location.href = "mailto:" + PARENT_EMAILS + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(st.report);
+}
+function copy(){
+  var t = st.report||"", s = $("copyStatus");
+  function ok(){s.textContent = " Copied – paste it into a message to Mum & Alex.";}
+  function bad(){s.textContent = " Copy didn't work – take a screenshot instead.";}
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(ok, function(){fallback(t,ok,bad);}); } else fallback(t,ok,bad);
+}
+function fallback(t,ok,bad){ try{ var ta=document.createElement("textarea"); ta.value=t; ta.style.position="fixed"; ta.style.left="-9999px"; document.body.appendChild(ta); ta.select(); var r=document.execCommand("copy"); document.body.removeChild(ta); r?ok():bad(); }catch(e){bad();} }
+
+$("whoD").addEventListener("click", function(){chooseWho("D");});
+$("whoC").addEventListener("click", function(){chooseWho("C");});
+$("startBtn").addEventListener("click", function(){ if(!st.who) return; if(!st.started) st.started = new Date().toISOString(); save(); show("s-q"); renderQ(); });
+$("nextBtn").addEventListener("click", function(){ if(!$("s-review").classList.contains("hide")) return; next(); });
+$("backBtn").addEventListener("click", back);
+$("finishBtn").addEventListener("click", finish);
+$("sendBtn").addEventListener("click", send);
+$("copyBtn").addEventListener("click", copy);
+window.__wk = {state:function(){return st;}, finish:finish, mark:markOne, Q:Q};
+})();
+</script>
+</body>
+</html>

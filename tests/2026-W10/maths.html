@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Maths – End-of-week check</title>
+<style>
+:root{--bg:#faf7f0;--card:#fff;--ink:#1a1a1a;--muted:#555;--accent:#2563eb;--soft:#e7efff;--ok:#1e7a3a;--okbg:#e8f6ec;--try:#8a5a00;--trybg:#fff4dc;--border:#ddd5c8;--r:16px}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;font-size:1.25rem;line-height:1.55;color:var(--ink);background:var(--bg)}
+.wrap{max-width:760px;margin:0 auto;padding:1.25rem 1.1rem 6rem}
+h1{font-size:clamp(1.5rem,4vw,2rem);margin:.2rem 0 .3rem}
+.sub{color:var(--muted);margin:0 0 1rem}
+.card{background:var(--card);border:2px solid var(--border);border-radius:var(--r);padding:1.25rem 1.3rem;margin:0 0 1.2rem}
+.card.lead{border-top:6px solid var(--accent)}
+.pill{display:inline-block;background:var(--soft);color:var(--accent);font-weight:700;border-radius:999px;padding:.15rem .8rem;font-size:1rem}
+ul.calm{padding-left:1.2rem;margin:.4rem 0}ul.calm li{margin:.3rem 0}
+.who{display:flex;gap:.8rem;flex-wrap:wrap;margin:.6rem 0}
+button{font-family:inherit}
+.btn{font-size:1.3rem;font-weight:700;padding:.85rem 1.5rem;border-radius:14px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;min-height:56px}
+.btn.soft{background:#fff;color:var(--ink);border-color:var(--border)}
+.btn.who-b{background:#fff;color:var(--accent);min-width:8rem}
+.btn.who-b[aria-pressed="true"]{background:var(--accent);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.progress{display:flex;align-items:center;gap:.8rem;margin:0 0 1rem;color:var(--muted);font-size:1.05rem}
+.bar{flex:1;height:12px;background:#ece6da;border-radius:999px;overflow:hidden}.bar>i{display:block;height:100%;background:var(--accent);width:0}
+.qnum{font-weight:800;color:var(--accent);font-size:1.15rem}
+.lo{font-size:.95rem;color:var(--muted);margin-left:.4rem}
+.prompt{font-size:1.4rem;font-weight:550;margin:.5rem 0 1.1rem}
+.eq{font-family:"Cambria Math","Times New Roman",serif;font-size:1.55rem;white-space:nowrap;background:var(--soft);padding:0 .45rem;border-radius:8px}
+.hint{font-size:1.05rem;color:var(--muted);font-weight:400}
+.tag-old{display:inline-block;font-size:.9rem;font-weight:700;background:#efe9ff;color:#5b3fb3;border-radius:999px;padding:.05rem .65rem;margin-right:.4rem;vertical-align:middle}
+.opts{display:grid;gap:.75rem}
+.opt{display:flex;gap:.8rem;align-items:flex-start;text-align:left;width:100%;font-size:1.25rem;padding:.9rem 1rem;border-radius:14px;border:2px solid var(--border);background:#fff;cursor:pointer;color:var(--ink);min-height:60px}
+.opt .let{flex:0 0 2.2rem;height:2.2rem;border-radius:50%;background:var(--soft);color:var(--accent);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt[aria-pressed="true"]{border-color:var(--accent);background:var(--soft);box-shadow:0 0 0 3px var(--soft)}
+.opt[aria-pressed="true"] .let{background:var(--accent);color:#fff}
+input.ans,textarea.ans{width:100%;font-size:1.35rem;padding:.8rem .95rem;border:2px solid #bbb;border-radius:12px;font-family:inherit;background:#fff}
+textarea.ans{min-height:9rem;font-size:1.2rem;line-height:1.5}
+.ans:focus,.opt:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.nav{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(transparent,var(--bg) 25%);padding:1.2rem 1rem 1rem}
+.nav .in{max-width:760px;margin:0 auto;display:flex;justify-content:space-between;gap:.8rem}
+.note{font-size:1.05rem;color:var(--muted)}
+.fb{border-radius:14px;padding:.9rem 1.1rem;margin:.6rem 0;border:2px solid var(--border);background:#fff}
+.fb.ok{background:var(--okbg);border-color:#bfe3c9}
+.fb.try{background:var(--trybg);border-color:#f0dca8}
+.fb.wr{background:#eef4ff;border-color:#c9d8f5}
+.fb .h{font-weight:700}.fb .why{color:#333;font-size:1.08rem;margin-top:.3rem}
+.big{font-size:1.6rem;font-weight:800}
+pre#report{white-space:pre-wrap;background:#fff;border:1px solid var(--border);border-radius:12px;padding:.9rem;font-family:inherit;font-size:1rem;max-height:18rem;overflow:auto}
+.hide{display:none!important}
+.sr{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <!-- START -->
+  <section id="s-start">
+    <span class="pill">End-of-week check</span>
+    <h1>Maths · Week 9 (w/c 16 Nov 2026)</h1>
+    <p class="sub">Forming expressions and solving one-step equations</p>
+    <div class="card lead">
+      <p style="margin-top:0"><b>This is a calm check, not a race.</b></p>
+      <ul class="calm">
+        <li>About <b>20 minutes</b> is plenty. There is <b>no timer</b> – take breaks if you need them.</li>
+        <li>15 questions, one at a time. Most are tap-an-answer.</li>
+        <li>You can go <b>Back</b> to change an answer, or skip one and come back.</li>
+        <li>It's fine not to know something – that just shows Mum &amp; Alex what to practise next.</li>
+        <li>At the end, tap <b>Send my results to Mum &amp; Alex</b>.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p style="margin:0 0 .3rem"><b>Who is doing this check?</b></p>
+      <div class="who">
+        <button type="button" class="btn who-b" id="whoD" aria-pressed="false">I'm D</button>
+        <button type="button" class="btn who-b" id="whoC" aria-pressed="false">I'm C</button>
+      </div>
+      <p class="note" id="whoNote">Tap your letter to start.</p>
+    </div>
+    <button type="button" class="btn" id="startBtn" disabled>Start →</button>
+  </section>
+
+  <!-- QUESTION -->
+  <section id="s-q" class="hide">
+    <div class="progress"><span id="progTxt"></span><div class="bar"><i id="progBar"></i></div></div>
+    <div class="card lead" id="qCard"></div>
+  </section>
+
+  <!-- REVIEW -->
+  <section id="s-review" class="hide">
+    <h1>Nearly done 🙂</h1>
+    <div class="card lead">
+      <p id="reviewTxt" style="margin-top:0"></p>
+      <div id="reviewList"></div>
+      <p class="note">When you tap <b>Finish</b>, your answers are locked in and you'll see how you did.</p>
+    </div>
+    <button type="button" class="btn" id="finishBtn">Finish ✓</button>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="s-res" class="hide">
+    <h1>Well done for finishing! 🌟</h1>
+    <div class="card lead">
+      <p class="big" id="scoreTxt" style="margin:.2rem 0"></p>
+      <p id="scoreSub" class="note" style="margin:.2rem 0 0"></p>
+    </div>
+    <div class="card">
+      <p style="margin-top:0"><b>Last step:</b> send your answers to Mum &amp; Alex.</p>
+      <button type="button" class="btn" id="sendBtn">Send my results to Mum &amp; Alex</button>
+      <p class="note" style="margin:.7rem 0 .3rem">This opens an email with everything filled in – just press <b>Send</b>.</p>
+      <button type="button" class="btn soft" id="copyBtn">Copy results instead</button>
+      <span id="copyStatus" class="note" aria-live="polite"></span>
+    </div>
+    <h2 style="font-size:1.3rem">Your answers</h2>
+    <div id="fbList"></div>
+    <details class="card"><summary>Show the results text</summary><pre id="report"></pre></details>
+  </section>
+</div>
+
+<div class="nav hide" id="nav"><div class="in">
+  <button type="button" class="btn soft" id="backBtn">← Back</button>
+  <button type="button" class="btn" id="nextBtn">Next →</button>
+</div></div>
+
+<script>
+(function(){
+"use strict";
+var TEST = JSON.parse(decodeURIComponent(escape(atob("eyJ0ZXN0X2lkIjogIjIwMjYtVzEwLW1hdGhzIiwgInRpdGxlIjogIk1hdGhzIiwgIndlZWtfbGFiZWwiOiAiV2VlayA5ICh3L2MgMTYgTm92IDIwMjYpIiwgIndlZWtfc2hvcnQiOiAiV2sgOSIsICJvdXRjb21lcyI6IHsiTTEiOiAiRm9ybSBhbiBleHByZXNzaW9uIGZyb20gYSB3b3JkIGRlc2NyaXB0aW9uIiwgIk0yIjogIktub3cgdGhlIGRpZmZlcmVuY2UgYmV0d2VlbiBhbiBleHByZXNzaW9uIGFuZCBhbiBlcXVhdGlvbiIsICJNMyI6ICJTb2x2ZSBvbmUtc3RlcCBlcXVhdGlvbnMgd2l0aCArIGFuZCDiiJIgKGludmVyc2Ugb3BlcmF0aW9ucywgYmFsYW5jZSkiLCAiTTQiOiAiU29sdmUgb25lLXN0ZXAgZXF1YXRpb25zIHdpdGggw5cgYW5kIMO3IChpbmNsdWRpbmcgZGVjaW1hbCBhbmQgbmVnYXRpdmUgYW5zd2VycykiLCAiTTUiOiAiQ2hlY2sgYSBzb2x1dGlvbiBhbmQgc3BvdCBtaXN0YWtlcyAod2hhdCBhIHNvbHV0aW9uIG1lYW5zKSIsICJNNiI6ICJSZXRlbnRpb24gKFdlZWtzIDfigJM4KTogc3Vic3RpdHV0aW9uIGFuZCBjb2xsZWN0aW5nIGxpa2UgdGVybXMifSwgInF1ZXN0aW9ucyI6IFt7InR5cGUiOiAibWMiLCAibG8iOiAiTTIiLCAicHJvbXB0IjogIldoaWNoIG9uZSBvZiB0aGVzZSBpcyBhbiA8Yj5lcXVhdGlvbjwvYj4/IiwgIm9wdGlvbnMiOiBbIjN4ICsgNSIsICI0YSArIDdiIiwgIjcgKyAyID0gMTAg4oiSIDEiLCAiMiArIDMiXSwgImFuc3dlciI6IDIsICJ3aHkiOiAiQW4gZXF1YXRpb24gaGFzIGFuIGVxdWFscyBzaWduOiB0d28gdGhpbmdzIGFyZSBlcXVhbC4gVGhlIG90aGVycyBhcmUgZXhwcmVzc2lvbnMuIiwgIm1hcmtzIjogMX0sIHsidHlwZSI6ICJtYyIsICJsbyI6ICJNMSIsICJwcm9tcHQiOiAiU2FtIGlzIDMwIHllYXJzIG9sZC4gTGVvIGlzIDxiPms8L2I+IHllYXJzIHlvdW5nZXIgdGhhbiBTYW0uIFdoaWNoIGV4cHJlc3Npb24gc2hvd3MgTGVvJ3MgYWdlPyIsICJvcHRpb25zIjogWyJrIOKIkiAzMCIsICIzMCArIGsiLCAiMzAg4oiSIGsiLCAiMzBrIl0sICJhbnN3ZXIiOiAyLCAid2h5IjogIllvdW5nZXIgbWVhbnMgdGFrZSBhd2F5OiAzMCDiiJIgay4iLCAibWFya3MiOiAxfSwgeyJ0eXBlIjogInNob3J0IiwgImxvIjogIk0xIiwgInByb21wdCI6ICJBcHBsZXMgY29zdCA8Yj5hPC9iPiBwZW5jZSBlYWNoLiBCYW5hbmFzIGNvc3QgPGI+YjwvYj4gcGVuY2UgZWFjaC48YnI+V3JpdGUgYW4gZXhwcmVzc2lvbiBmb3IgdGhlIGNvc3QsIGluIHBlbmNlLCBvZiA8Yj40IGFwcGxlcyBhbmQgMiBiYW5hbmFzPC9iPi4iLCAiYW5zd2VyIjogIjRhICsgMmIiLCAiYWNjZXB0IjogWyI0YSsyYiIsICIyYis0YSIsICI0w5dhKzLDl2IiLCAiNCphKzIqYiIsICJhNCtiMiJdLCAia2luZCI6ICJleHByIiwgInBsYWNlaG9sZGVyIjogImUuZy4gM2EgKyA1YiIsICJ3aHkiOiAiNCBhcHBsZXMgY29zdCA0IMOXIGEgPSA0YSwgMiBiYW5hbmFzIGNvc3QgMiDDlyBiID0gMmIsIHNvIDRhICsgMmIuIiwgIm1hcmtzIjogMX0sIHsidHlwZSI6ICJtYyIsICJsbyI6ICJNMSIsICJwcm9tcHQiOiAiSm8gdGhpbmtzIG9mIGEgbnVtYmVyIDxiPm48L2I+LiBTaGUgbXVsdGlwbGllcyBpdCBieSAzIGFuZCB0aGVuIHN1YnRyYWN0cyA0LiBXaGljaCBleHByZXNzaW9uIHNob3dzIHRoaXM/IiwgIm9wdGlvbnMiOiBbIjMobiDiiJIgNCkiLCAiM24g4oiSIDQiLCAiNCDiiJIgM24iLCAibiArIDMg4oiSIDQiXSwgImFuc3dlciI6IDEsICJ3aHkiOiAiRmlyc3Qgw5cgMyBnaXZlcyAzbiwgdGhlbiDiiJIgNCBnaXZlcyAzbiDiiJIgNC4iLCAibWFya3MiOiAxfSwgeyJ0eXBlIjogInNob3J0IiwgImxvIjogIk0zIiwgInByb21wdCI6ICJTb2x2ZTogPHNwYW4gY2xhc3M9J2VxJz54ICsgOCA9IDE1PC9zcGFuPiIsICJhbnN3ZXIiOiAiNyIsICJhY2NlcHQiOiBbIjciXSwgImtpbmQiOiAibnVtIiwgInBsYWNlaG9sZGVyIjogInggPSA/IiwgIndoeSI6ICJTdWJ0cmFjdCA4IGZyb20gYm90aCBzaWRlczogeCA9IDE1IOKIkiA4ID0gNy4iLCAibWFya3MiOiAxfSwgeyJ0eXBlIjogInNob3J0IiwgImxvIjogIk0zIiwgInByb21wdCI6ICJTb2x2ZTogPHNwYW4gY2xhc3M9J2VxJz54IOKIkiA1ID0gMTI8L3NwYW4+IiwgImFuc3dlciI6ICIxNyIsICJhY2NlcHQiOiBbIjE3Il0sICJraW5kIjogIm51bSIsICJwbGFjZWhvbGRlciI6ICJ4ID0gPyIsICJ3aHkiOiAiQWRkIDUgdG8gYm90aCBzaWRlczogeCA9IDEyICsgNSA9IDE3LiIsICJtYXJrcyI6IDF9LCB7InR5cGUiOiAic2hvcnQiLCAibG8iOiAiTTMiLCAicHJvbXB0IjogIlNvbHZlOiA8c3BhbiBjbGFzcz0nZXEnPjI1ID0gOCArIHk8L3NwYW4+IiwgImFuc3dlciI6ICIxNyIsICJhY2NlcHQiOiBbIjE3Il0sICJraW5kIjogIm51bSIsICJwbGFjZWhvbGRlciI6ICJ5ID0gPyIsICJ3aHkiOiAiVGhlIGxldHRlciBjYW4gYmUgb24gdGhlIHJpZ2h0LiBTdWJ0cmFjdCA4IGZyb20gYm90aCBzaWRlczogMjUg4oiSIDggPSAxNywgc28geSA9IDE3LiIsICJtYXJrcyI6IDF9LCB7InR5cGUiOiAic2hvcnQiLCAibG8iOiAiTTQiLCAicHJvbXB0IjogIlNvbHZlOiA8c3BhbiBjbGFzcz0nZXEnPjR4ID0gMjg8L3NwYW4+IiwgImFuc3dlciI6ICI3IiwgImFjY2VwdCI6IFsiNyJdLCAia2luZCI6ICJudW0iLCAicGxhY2Vob2xkZXIiOiAieCA9ID8iLCAid2h5IjogIjR4IG1lYW5zIDQgw5cgeC4gRGl2aWRlIGJvdGggc2lkZXMgYnkgNDogeCA9IDcuIiwgIm1hcmtzIjogMX0sIHsidHlwZSI6ICJzaG9ydCIsICJsbyI6ICJNNCIsICJwcm9tcHQiOiAiU29sdmU6IDxzcGFuIGNsYXNzPSdlcSc+eCDDtyAzID0gOTwvc3Bhbj4iLCAiYW5zd2VyIjogIjI3IiwgImFjY2VwdCI6IFsiMjciXSwgImtpbmQiOiAibnVtIiwgInBsYWNlaG9sZGVyIjogInggPSA/IiwgIndoeSI6ICJVbmRvIMO3IDMgYnkgbXVsdGlwbHlpbmcgYm90aCBzaWRlcyBieSAzOiB4ID0gMjcuIiwgIm1hcmtzIjogMX0sIHsidHlwZSI6ICJzaG9ydCIsICJsbyI6ICJNNCIsICJwcm9tcHQiOiAiU29sdmU6IDxzcGFuIGNsYXNzPSdlcSc+MiA9IDh4PC9zcGFuPjxicj48c3BhbiBjbGFzcz0naGludCc+VGhlIGFuc3dlciBjYW4gYmUgYSBkZWNpbWFsIG9yIGEgZnJhY3Rpb24uPC9zcGFuPiIsICJhbnN3ZXIiOiAiMC4yNSIsICJhY2NlcHQiOiBbIjAuMjUiLCAiMS80IiwgIi4yNSIsICIyLzgiXSwgImtpbmQiOiAibnVtIiwgInBsYWNlaG9sZGVyIjogInggPSA/IiwgIndoeSI6ICJEaXZpZGUgYm90aCBzaWRlcyBieSA4OiB4ID0gMiDDtyA4ID0gMC4yNSAob3IgwrwpLiIsICJtYXJrcyI6IDF9LCB7InR5cGUiOiAic2hvcnQiLCAibG8iOiAiTTQiLCAicHJvbXB0IjogIlNvbHZlOiA8c3BhbiBjbGFzcz0nZXEnPjN4ID0g4oiSMjQ8L3NwYW4+IiwgImFuc3dlciI6ICItOCIsICJhY2NlcHQiOiBbIi04Il0sICJraW5kIjogIm51bSIsICJwbGFjZWhvbGRlciI6ICJ4ID0gPyIsICJ3aHkiOiAiRGl2aWRlIGJvdGggc2lkZXMgYnkgMzog4oiSMjQgw7cgMyA9IOKIkjguIE5lZ2F0aXZlIMO3IHBvc2l0aXZlID0gbmVnYXRpdmUuIiwgIm1hcmtzIjogMX0sIHsidHlwZSI6ICJtYyIsICJsbyI6ICJNNSIsICJwcm9tcHQiOiAiUm9tZXNoIHNvbHZlZCA8c3BhbiBjbGFzcz0nZXEnPnggKyA5ID0gMTU8L3NwYW4+IGFuZCB3cm90ZSA8Yj54ID0gMjQ8L2I+LiBXaGF0IG1pc3Rha2UgZGlkIGhlIG1ha2U/IiwgIm9wdGlvbnMiOiBbIkhlIGFkZGVkIDkgaW5zdGVhZCBvZiBzdWJ0cmFjdGluZyA5IiwgIkhlIGRpdmlkZWQgYnkgOSIsICJOb3RoaW5nIOKAkyBoZSBpcyByaWdodCIsICJIZSBzaG91bGQgaGF2ZSBtdWx0aXBsaWVkIGJ5IDE1Il0sICJhbnN3ZXIiOiAwLCAid2h5IjogIlRvIHVuZG8gKyA5IHlvdSBzdWJ0cmFjdCA5OiB4ID0gNi4gQ2hlY2s6IDYgKyA5ID0gMTUg4pyTLiIsICJtYXJrcyI6IDF9LCB7InR5cGUiOiAid3JpdHRlbiIsICJsbyI6ICJNNSIsICJwcm9tcHQiOiAiVGhlIGVxdWF0aW9uIDxzcGFuIGNsYXNzPSdlcSc+OXggPSAyNzwvc3Bhbj4gaGFzIHRoZSBhbnN3ZXIgeCA9IDMuPGJyPldyaXRlIGRvd24gPGI+dHdvIGRpZmZlcmVudDwvYj4gZXF1YXRpb25zIHRoYXQgYWxzbyBoYXZlIHRoZSBhbnN3ZXIgPGI+eCA9IDM8L2I+LiIsICJhbnN3ZXIiOiAiQW55IHR3byBjb3JyZWN0LCBkaWZmZXJlbnQgZXF1YXRpb25zIHdpdGggc29sdXRpb24geCA9IDMsIGUuZy4geCArIDQgPSA3LCB4IOKIkiAxID0gMiwgNXggPSAxNSwgeCDDtyAzID0gMSwgMTAgPSB4ICsgNy4iLCAicGxhY2Vob2xkZXIiOiAiZS5nLiBvbmUgZXF1YXRpb24gb24gZWFjaCBsaW5lIiwgIndoeSI6ICJTdWJzdGl0dXRlIHggPSAzIGludG8gZWFjaCBvbmUg4oCTIGJvdGggc2lkZXMgc2hvdWxkIGJlIGVxdWFsLiIsICJtYXJrcyI6IDJ9LCB7InR5cGUiOiAic2hvcnQiLCAibG8iOiAiTTYiLCAicHJvbXB0IjogIjxzcGFuIGNsYXNzPSd0YWctb2xkJz5Gcm9tIFdlZWtzIDfigJM4PC9zcGFuPiBJZiA8Yj5wID0gNzwvYj4sIHdvcmsgb3V0IHRoZSB2YWx1ZSBvZiA8c3BhbiBjbGFzcz0nZXEnPjRwICsgOTwvc3Bhbj4iLCAiYW5zd2VyIjogIjM3IiwgImFjY2VwdCI6IFsiMzciXSwgImtpbmQiOiAibnVtIiwgInBsYWNlaG9sZGVyIjogIkFuc3dlciIsICJ3aHkiOiAiNCDDlyA3ID0gMjgsIHRoZW4gMjggKyA5ID0gMzcuIiwgIm1hcmtzIjogMX0sIHsidHlwZSI6ICJtYyIsICJsbyI6ICJNNiIsICJwcm9tcHQiOiAiPHNwYW4gY2xhc3M9J3RhZy1vbGQnPkZyb20gV2Vla3MgN+KAkzg8L3NwYW4+IFNpbXBsaWZ5OiA8c3BhbiBjbGFzcz0nZXEnPjNhICsgMmIgKyA0YTwvc3Bhbj4iLCAib3B0aW9ucyI6IFsiOWFiIiwgIjdhICsgMmIiLCAiN2FiICsgMmIiLCAiNWEgKyA0YSJdLCAiYW5zd2VyIjogMSwgIndoeSI6ICJDb2xsZWN0IGxpa2UgdGVybXM6IDNhICsgNGEgPSA3YS4gVGhlIDJiIHN0YXlzIHNlcGFyYXRlLiA3YSArIDJiLiIsICJtYXJrcyI6IDF9XX0="))));
+var PARENT_EMAILS = "alexvanderlip@gmail.com,cat_appleby@live.co.uk";
+var Q = TEST.questions, N = Q.length;
+var st = {who:"", a:{}, i:0, started:null, finished:null, done:false};
+var LS = "wkcheck-" + TEST.test_id;
+
+function $(id){return document.getElementById(id);}
+function show(id){["s-start","s-q","s-review","s-res"].forEach(function(s){$(s).classList.toggle("hide", s!==id);}); $("nav").classList.toggle("hide", id!=="s-q" && id!=="s-review"); window.scrollTo(0,0);}
+function save(){try{localStorage.setItem(LS+"-"+st.who, JSON.stringify(st));}catch(e){}}
+function load(who){try{var s=JSON.parse(localStorage.getItem(LS+"-"+who)||"null"); if(s&&s.who===who) return s;}catch(e){} return null;}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function plain(h){var d=document.createElement("div"); d.innerHTML=h; return (d.textContent||"").replace(/\s+/g," ").trim();}
+
+function chooseWho(w){
+  st.who = w;
+  $("whoD").setAttribute("aria-pressed", w==="D"); $("whoC").setAttribute("aria-pressed", w==="C");
+  var prev = load(w);
+  if(prev && !prev.done && Object.keys(prev.a).length){ st = prev; $("whoNote").textContent = "Hi " + w + "! Your answers so far are saved – tap Start to carry on."; }
+  else { st = {who:w, a:{}, i:0, started:null, finished:null, done:false}; $("whoNote").textContent = "Hi " + w + "! Tap Start when you're ready."; }
+  $("startBtn").disabled = false;
+}
+
+function renderQ(){
+  var q = Q[st.i], n = st.i+1, h = "";
+  $("progTxt").textContent = "Question " + n + " of " + N;
+  $("progBar").style.width = Math.round(100*st.i/N) + "%";
+  h += '<div><span class="qnum">Question ' + n + '</span>' + (q.type==="written" ? '<span class="lo">· write your answer</span>' : '') + '</div>';
+  h += '<div class="prompt" id="qp">' + q.prompt + '</div>';
+  var cur = st.a[n];
+  if(q.type==="mc"){
+    h += '<div class="opts" role="group" aria-labelledby="qp">';
+    q.options.forEach(function(o,k){
+      h += '<button type="button" class="opt" data-k="'+k+'" aria-pressed="'+(String(cur)===String(k))+'"><span class="let">'+"ABCDEF"[k]+'</span><span>'+esc(o)+'</span></button>';
+    });
+    h += '</div>';
+  } else if(q.type==="short"){
+    h += '<label class="sr" for="ans">Your answer</label><input class="ans" id="ans" type="text" autocomplete="off" spellcheck="false" placeholder="'+esc(q.placeholder||"Your answer")+'" value="'+esc(cur||"")+'"/>';
+  } else {
+    h += '<label class="sr" for="ans">Your answer</label><textarea class="ans" id="ans" placeholder="'+esc(q.placeholder||"")+'">'+esc(cur||"")+'</textarea>';
+  }
+  $("qCard").innerHTML = h;
+  Array.prototype.forEach.call(document.querySelectorAll(".opt"), function(b){
+    b.addEventListener("click", function(){
+      st.a[n] = Number(b.getAttribute("data-k")); save();
+      Array.prototype.forEach.call(document.querySelectorAll(".opt"), function(x){x.setAttribute("aria-pressed", x===b);});
+    });
+  });
+  var inp = $("ans");
+  if(inp){ inp.addEventListener("input", function(){ st.a[n] = inp.value; save(); });
+    if(q.type==="short") inp.addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); next(); }}); }
+  $("backBtn").disabled = false;
+  $("nextBtn").textContent = n===N ? "Review →" : "Next →";
+}
+function answered(n){var v=st.a[n]; return v!==undefined && v!==null && String(v).trim()!=="";}
+function next(){ if(st.i < N-1){ st.i++; save(); renderQ(); window.scrollTo(0,0);} else { review(); } }
+function back(){ if(!$("s-review").classList.contains("hide")){ show("s-q"); renderQ(); return; } if(st.i>0){ st.i--; save(); renderQ(); } else { show("s-start"); } }
+function review(){
+  var miss = []; for(var n=1;n<=N;n++) if(!answered(n)) miss.push(n);
+  $("reviewTxt").innerHTML = miss.length ? "You've answered <b>"+(N-miss.length)+" of "+N+"</b>. These are still blank – that's OK, or tap one to have another go:" : "You've answered <b>all "+N+"</b> questions. Brilliant!";
+  $("reviewList").innerHTML = miss.map(function(n){return '<button type="button" class="btn soft" style="margin:.25rem" data-go="'+n+'">Q'+n+'</button>';}).join("");
+  Array.prototype.forEach.call(document.querySelectorAll("[data-go]"), function(b){ b.addEventListener("click", function(){ st.i = Number(b.getAttribute("data-go"))-1; show("s-q"); renderQ(); }); });
+  show("s-review"); $("nextBtn").classList.add("hide");
+}
+
+/* ---------- marking ---------- */
+function normNum(s){
+  s = String(s).toLowerCase().replace(/[\u2212\u2013\u2014]/g,"-").replace(/\s+/g,"").replace(/^[a-z]=/,"").replace(/[.]$/,"");
+  var m = s.match(/^(-?\d+)\/(\d+)$/); if(m) return Number(m[1])/Number(m[2]);
+  if(/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return Number(s);
+  return NaN;
+}
+function normExpr(s){
+  s = String(s).toLowerCase().replace(/[\u2212\u2013]/g,"-").replace(/pence|p\b/g,"").replace(/[×*\s]/g,"");
+  return s.split("+").filter(Boolean).sort().join("+");
+}
+function lev(a,b){var d=[],i,j;for(i=0;i<=a.length;i++){d[i]=[i];}for(j=0;j<=b.length;j++)d[0][j]=j;for(i=1;i<=a.length;i++)for(j=1;j<=b.length;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[a.length][b.length];}
+function markOne(q, v){
+  if(v===undefined || v===null || String(v).trim()==="") return "blank";
+  if(q.type==="mc") return Number(v)===q.answer ? "ok" : "try";
+  if(q.type==="short"){
+    if(q.kind==="num"){ var x = normNum(v); return q.accept.some(function(a){return Math.abs(normNum(a)-x)<1e-9;}) ? "ok" : "try"; }
+    if(q.kind==="expr"){ var e = normExpr(v); return q.accept.some(function(a){return normExpr(a)===e;}) ? "ok" : "try"; }
+    var w = String(v).toLowerCase().replace(/[^a-z ]/g,"").trim();
+    return (q.accept.indexOf(w)>=0 || lev(w, q.answer)<=2) ? "ok" : "try";
+  }
+  return "written";
+}
+function shown(q, v){ if(q.type==="mc") return (v===undefined||v===null||v==="") ? "(blank)" : "ABCDEF"[v] + ") " + q.options[v]; return (v===undefined||String(v).trim()==="") ? "(blank)" : String(v).trim(); }
+function correctTxt(q){ return q.type==="mc" ? "ABCDEF"[q.answer] + ") " + q.options[q.answer] : q.answer; }
+
+function finish(){
+  st.done = true; st.finished = new Date().toISOString(); save();
+  $("nextBtn").classList.remove("hide");
+  var auto=0, got=0, wr=0, wrMarks=0, per={}, fb="", lines=[], data={};
+  Q.forEach(function(q,k){
+    var n=k+1, v=st.a[n], r=markOne(q,v);
+    per[q.lo] = per[q.lo] || {got:0, of:0, wr:0};
+    if(r==="written"||(q.type==="written")){ wr++; wrMarks += (q.marks||1); per[q.lo].wr++; r = (r==="blank") ? "blank-written" : "written"; }
+    else { auto++; per[q.lo].of++; if(r==="ok"){got++; per[q.lo].got++;} }
+    data[n] = (v===undefined ? null : v);
+    var tag = r==="ok" ? "✓" : r==="try" ? "✗" : r==="blank" ? "–" : "WRITTEN";
+    lines.push("Q"+n+" ["+q.lo+"] "+tag+" "+shown(q,v) + (r==="try"||r==="blank" ? "   (answer: "+plain(correctTxt(q))+")" : ""));
+    var cls = r==="ok" ? "ok" : (r==="written"||r==="blank-written") ? "wr" : "try";
+    var head = r==="ok" ? "✓ Yes – well done!" : r==="try" ? "Not quite – here's the answer: " + esc(plain(correctTxt(q))) : r==="blank" ? "Skipped – that's OK. The answer is: " + esc(plain(correctTxt(q))) : "💬 Mum & Alex will read this one.";
+    fb += '<div class="fb '+cls+'"><div><span class="qnum">Q'+n+'</span> '+plain(q.prompt).slice(0,140)+'</div>'
+       + '<div class="note">Your answer: '+esc(shown(q,v))+'</div>'
+       + '<div class="h">'+head+'</div>' + (q.why ? '<div class="why">'+esc(q.why)+'</div>' : '') + '</div>';
+  });
+  var t0 = st.started ? new Date(st.started) : null, t1 = new Date(st.finished);
+  var mins = t0 ? Math.max(1, Math.round((t1-t0)/60000)) : "?";
+  var when = t1.toLocaleString("en-GB",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/London"});
+  var head = [
+    "END-OF-WEEK CHECK RESULTS",
+    "Subject: " + TEST.title + " – " + TEST.week_label,
+    "Child: " + st.who,
+    "Finished: " + when + " (UK) – took about " + mins + " min",
+    "Auto-marked: " + got + " / " + auto,
+    "Written answers to mark: " + wr + " (" + wrMarks + " marks)",
+    ""];
+  var byLo = ["", "By learning outcome (auto-marked):"];
+  Object.keys(TEST.outcomes).forEach(function(lo){ var p = per[lo]; if(!p) return;
+    byLo.push(lo + ": " + (p.of ? p.got + "/" + p.of : "–") + (p.wr ? " + " + p.wr + " written" : "")); });
+  var payload = {v:1, test:TEST.test_id, who:st.who, started:st.started, finished:st.finished, a:data};
+  var report = head.concat(lines, byLo, ["", "---DATA---", JSON.stringify(payload)]).join("\n");
+  st.report = report; st.got = got; st.auto = auto; save();
+  $("scoreTxt").textContent = "You got " + got + " out of " + auto + " quiz questions right.";
+  $("scoreSub").textContent = wr ? "Mum & Alex will read your " + (wr===1 ? "written answer" : wr + " written answers") + " too." : "";
+  $("fbList").innerHTML = fb; $("report").textContent = report;
+  show("s-res");
+}
+function send(){
+  if(!st.report) return;
+  var subject = "End-of-week check – " + TEST.title + " – " + TEST.week_short + " – " + st.who + " – " + st.got + "/" + st.auto + " auto-marked";
+  window.location.href = "mailto:" + PARENT_EMAILS + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(st.report);
+}
+function copy(){
+  var t = st.report||"", s = $("copyStatus");
+  function ok(){s.textContent = " Copied – paste it into a message to Mum & Alex.";}
+  function bad(){s.textContent = " Copy didn't work – take a screenshot instead.";}
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(ok, function(){fallback(t,ok,bad);}); } else fallback(t,ok,bad);
+}
+function fallback(t,ok,bad){ try{ var ta=document.createElement("textarea"); ta.value=t; ta.style.position="fixed"; ta.style.left="-9999px"; document.body.appendChild(ta); ta.select(); var r=document.execCommand("copy"); document.body.removeChild(ta); r?ok():bad(); }catch(e){bad();} }
+
+$("whoD").addEventListener("click", function(){chooseWho("D");});
+$("whoC").addEventListener("click", function(){chooseWho("C");});
+$("startBtn").addEventListener("click", function(){ if(!st.who) return; if(!st.started) st.started = new Date().toISOString(); save(); show("s-q"); renderQ(); });
+$("nextBtn").addEventListener("click", function(){ if(!$("s-review").classList.contains("hide")) return; next(); });
+$("backBtn").addEventListener("click", back);
+$("finishBtn").addEventListener("click", finish);
+$("sendBtn").addEventListener("click", send);
+$("copyBtn").addEventListener("click", copy);
+window.__wk = {state:function(){return st;}, finish:finish, mark:markOne, Q:Q};
+})();
+</script>
+</body>
+</html>
